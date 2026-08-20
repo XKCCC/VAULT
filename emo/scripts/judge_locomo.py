@@ -163,8 +163,7 @@ async def amain():
         print(f"  → {Path(f).name}: overall J = {rec['overall']['j']} (n={rec['overall']['n']})", flush=True)
 
     out_path = ROOT / "outputs" / "locomo" / "judge_results.json"
-    # 合并而非覆盖（2026-08-12 事故：单次运行覆盖了历史全部条目）——
-    # 按 (file, judge) 复合键替换：同一文件不同裁判各留一条（2026-08-14 o4-mini 覆盖 qwen 条目事故）
+    # 合并而非覆盖——按 (file, judge) 复合键替换：同一文件不同裁判各留一条
     if out_path.exists():
         try:
             old = json.load(open(out_path))
@@ -179,7 +178,7 @@ async def amain():
     print(f"\n{'='*60}\n  LLM-judge 汇总 (judge={JUDGE_MODEL})\n{'='*60}")
     for rec in records:
         if "n" not in rec.get("overall", {}):
-            continue  # 历史重建条目可能缺 n（2026-08-12 覆盖事故），跳过汇总打印
+            continue  # 历史重建条目可能缺 n，跳过汇总打印
         print(f"\n  {Path(rec['file']).name}")
         for cat, v in rec["by_category"].items():
             print(f"    {cat:12s}: J = {v['j']:6.2f}  (n={v['n']})")

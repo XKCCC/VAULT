@@ -56,7 +56,7 @@ def get_anscheck_prompt(task, question, answer, response, abstention=False):
     return prompt
 
 
-# ── MemPro 版裁判 prompt（2026-08-13 移植自 MemPro/eval/longmemeval_test.py，
+# ── MemPro 版裁判 prompt（移植自 MemPro/eval/longmemeval_test.py，
 #    规则逐字保留；判定对象措辞 "research summary"→"model response" 以适配我们的短答案，
 #    宽松度规则不变：实体出现即算对/语义等价优先/缺上下文不罚）──
 MEMPRO_JUDGE_PROMPT = """\
@@ -211,7 +211,7 @@ async def amain():
     json.dump(out, open(out_path, "w"), indent=2, ensure_ascii=False)
     print(f"\n结果保存: {out_path}")
 
-    # 逐题判定落盘：消融/配置间的配对差分分析依赖它（2026-08-11 缺口）
+    # 逐题判定落盘：消融/配置间的配对差分分析依赖它
     detail = {r["question_id"]: ok for r, ok in zip(todo, results)}
     detail_path = Path(args.file).with_name(Path(args.file).stem + f"_judge{suffix}_detail.json")
     json.dump(detail, open(detail_path, "w"), indent=2, ensure_ascii=False)

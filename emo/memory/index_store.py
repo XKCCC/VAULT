@@ -166,7 +166,7 @@ class IndexStore:
         metadatas = [e.to_metadata() for e in entries]
 
         # 分块写入：chroma rust 后端单次 add 上限 5461 条
-        # （LifeBench 单用户 1.5 万条一次性写入被拒，2026-08-11 实锤）
+        # （LifeBench 单用户 1.5 万条，一次性写入会被拒）
         _BATCH = 2000
         for start in range(0, len(entries), _BATCH):
             end = start + _BATCH

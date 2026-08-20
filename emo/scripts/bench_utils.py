@@ -42,7 +42,7 @@ def get_embedding_fn(model_path: str):
     LongMemEval 要建 500 个独立库：若每个 IndexStore 各自加载 bge-m3，
     CPU 上每次约 2 分钟，光加载就要十几小时。共享一个实例即可。
 
-    实现要点（两个踩坑，2026-08-10）：
+    实现要点：
     1. chroma 的 SentenceTransformerEmbeddingFunction 默认 device="cpu"——
        不传就在 GPU 机器上用 CPU 编码（35+ min/500 条 vs GPU <1 min）
     2. encode 默认 batch_size=32，bge-m3 处理 8k token 长文档时单批 4D
@@ -226,7 +226,7 @@ def make_retrieve_fn(args, retriever, client_info):
                 return r.choices[0].message.content.strip() or q
 
     # CrossEncoder 精排（可选；全局缓存——逐实例新建会让显存越爬越高，
-    # 每个 ~2.3GB，GC 不及时就是泄漏，2026-08-11 实锤）
+    # 每个 ~2.3GB，GC 不及时就是泄漏）
     reranker = None
     if getattr(args, "rerank", False):
         _xe = get_reranker(args.rerank_model)

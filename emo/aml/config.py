@@ -5,10 +5,10 @@
     export AML_LLM_BASE=https://dashscope.aliyuncs.com/compatible-mode/v1
     export AML_LLM_MODEL=qwen-plus
     export AML_LLM_KEY_ENV=DASHSCOPE_API_KEY
-  正式评测（内部模型必须 gpt-4o-mini，AML full 前置清单要求）：
+  正式评测（AML full 要求内部模型全部走 gpt-4o-mini）：
     export AML_LLM_BASE=https://api.naga.ac/v1
     export AML_LLM_MODEL=gpt-4o-mini
-    export AML_LLM_KEY_ENV=OPENAI_API_KEY   # 配合 .env.openai_official
+    export AML_LLM_KEY_ENV=OPENAI_API_KEY
 """
 import os
 from dataclasses import dataclass

@@ -79,8 +79,8 @@ QA_PROMPT_CAT5 = (
     "Answer (a or b):"
 )
 
-# cat3 两阶段 CoT v2（2026-08-12 修：v1 的拒答指令太激进，会把成功的世界知识推理否决掉——
-# Xenoblade 案例推理正确仍拒答。v2：有相关事实必须尽力推理，推不出才拒答）
+# cat3 两阶段 CoT v2：有相关事实必须尽力推理，推不出才拒答
+# （v1 拒答指令太激进，会把成功的世界知识推理否决掉）
 QA_PROMPT_CAT3_COT = (
     "You are answering a question about a past conversation based on the retrieved memories above.\n"
     "Each memory begins with its date in parentheses.\n"
@@ -97,9 +97,8 @@ QA_PROMPT_CAT3_COT = (
     "Question: {question}\n"
 )
 
-# v3（2026-08-18）：v2 + MemPro locomo prompt 的答案形态条款（复数全列/why 双因/
-# 限定词锚定），放开 1-5 词硬约束。动机：与 MemPro-15 的差距集中在 single-hop
-# （-5.2），其 prompt 形态条款正是 v2 缺的；OD 我们已领先（+1.0）故不动 cat3。
+# v3：v2 + MemPro locomo prompt 的答案形态条款（复数全列/why 双因/
+# 限定词锚定），放开 1-5 词硬约束。仅动 cat1/4 默认分支，cat3 独立 prompt 不变。
 QA_PROMPT_V3 = (
     "You are answering a question about a past conversation based on the retrieved memories above.\n"
     "Each memory begins with its date in parentheses, e.g. \"(1:56 pm on 8 May, 2023)\".\n\n"

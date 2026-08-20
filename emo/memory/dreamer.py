@@ -619,7 +619,7 @@ class DreamOrchestrator:
         now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         # tags 合并而非覆盖：结构化把 mf.tags 换成了 LLM 语义标签，但旧条目
         # 里的溯源标签（session_id/dia_id/has_answer）是召回统计与审计的
-        # 唯一线索，必须随重建保留（2026-08-11 LME 做梦后 recall 全 0 实锤）
+        # 唯一线索，必须随重建保留（丢了召回统计会全 0）
         merged_tags = list(dict.fromkeys(
             [*(old.tags if old else []), *(mf.tags.split(",") if mf.tags else [])]
         ))
@@ -1264,7 +1264,7 @@ class DreamOrchestrator:
         fused_id = f"l3_{label2}_{box_hash}"
         member_ids_str = ",".join(member_ids)
 
-        # 幂等回补（2026-08-13 多路召回改造）：簇已融合过则只补成员连接，不重复调 LLM
+        # 幂等回补：簇已融合过则只补成员连接，不重复调 LLM
         existing = self._persist.get_batch([fused_id])
         if existing:
             mf = existing[0]

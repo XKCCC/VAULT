@@ -214,9 +214,8 @@ QA_PROMPT_CAT2_V2 = (
     "Question: {question}\n"
     "Answer:")
 
-# v3（2026-08-19 采纳）：v2 + MemPro locomo prompt 的答案形态条款（复数全列/why 双因/
-# 限定词锚定），放开 1-5 词硬约束。A/B 双裁判 +2.6（qwen 77.84→80.50 / 4o-mini 81.95→84.55），
-# 与 reanswer_locomo_fulltext.QA_PROMPT_V3 逐字一致。
+# v3：v2 + MemPro locomo prompt 的答案形态条款（复数全列/why 双因/
+# 限定词锚定），放开 1-5 词硬约束。与 reanswer_locomo_fulltext.QA_PROMPT_V3 逐字一致。
 QA_PROMPT_V3 = (
     "You are answering a question about a past conversation based on the retrieved memories above.\n"
     "Each memory begins with its date in parentheses, e.g. \"(1:56 pm on 8 May, 2023)\".\n\n"
@@ -371,7 +370,7 @@ def format_memories_for_locomo(
 ) -> str:
     """将检索到的记忆格式化为 LoCoMo 风格的上下文
 
-    全文注入（2026-08-12 截断修复）：非 L3 条目从 sqlite 拉 raw_content 全文；
+    全文注入：非 L3 条目从 sqlite 拉 raw_content 全文；
     L3 背景卡的 raw_content 是占位符，洞察正文在 summary。
     """
     if not memories:
@@ -665,7 +664,7 @@ def evaluate(args):
                 Path(sqlite_path).unlink()
 
         # 共享 EF 显式传 device：直建 IndexStore 内部走 chroma STEF 默认 cpu，
-        # bge-m3 在 CPU 上每条十几秒（2026-08-19 bge 做梦库重建实测的批间静默根因）
+        # bge-m3 在 CPU 上每条十几秒
         index_store = IndexStore(
             persist_dir=chroma_dir,
             embedding_model_path=args.embed_model,
@@ -700,8 +699,7 @@ def evaluate(args):
 
             if 1 in steps or 2 in steps:
                 # 合并异步版：每条一次调用同时完成 结构化+关联+supersede
-                # （分离路径的 generate_links 不做 supersede！2026-08-11 查实；
-                # 2026-08-14 切换到合并路径，与 LME/LifeBench 对齐）
+                # （分离路径的 generate_links 不做 supersede）
                 print(f"    Step 1+2: 结构化+关联+supersede（合并异步）...", flush=True)
                 dream_stats.update(asyncio.run(
                     dreamer.structure_and_link_memories_async(batch_size=args.dream_batch)
@@ -725,9 +723,9 @@ def evaluate(args):
             print(f"  [2.5/4] 做梦完成: {dream_stats}", flush=True)
 
         # 传 persistent_store 启用时间轴并集召回（否则 --temporal-anchor 是惰性开关，
-        # temporal_now 无处生效——A3 首轮因此空跑，2026-08-07 修复）
-        # 注意：对未带 --temporal-anchor 的运行是 no-op（now=真实 2026 年，
-        # 范围匹配不到 2023 事件），不破坏 A0-A2/B1-B4 的可比性
+        # temporal_now 无处生效）
+        # 注意：对未带 --temporal-anchor 的运行是 no-op（now=真实当前时间，
+        # 范围可能匹配不到数据内的历史事件）
         retriever = Retriever(index_store, top_k=args.top_k, persistent_store=persistent_store)
         assembler = ContextAssembler(index_store, persistent_store)
 

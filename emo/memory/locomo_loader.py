@@ -292,9 +292,8 @@ class LoCoMoLoader:
                     importance=0.5,
                     # LoCoMo 导入即预结构化（observation/event_summary 提炼），
                     # 标记 dreamed：做梦 Step 2 可直接建关联，Step 1 不会重复结构化。
-                    # raw_turns=True 时 turn 标 raw——用于"LoCoMo 真做梦"实验
-                    # （2026-08-14：让 Step1 结构化/supersede 真正跑在原始 turn 上，
-                    # 仅影响新建库，不改既有库）
+                    # raw_turns=True 时 turn 标 raw——让做梦 Step1 结构化/supersede
+                    # 真正跑在原始 turn 上（仅影响新建库，不改既有库）
                     status="raw" if self._raw_turns else "dreamed",
                 )
                 memory_files.append(mf)

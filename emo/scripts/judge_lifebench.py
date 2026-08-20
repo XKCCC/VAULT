@@ -102,7 +102,7 @@ async def amain():
     # 选择题不过 judge：先确定性判掉；judge 任务只收简答+UA 文本题
     stats = defaultdict(lambda: {"correct": 0, "wrong": 0, "fail": 0})
     judge_tasks = []  # (cat, question, gold, prediction, ua)
-    detail = {}       # question -> bool（配对差分分析依赖，2026-08-12 补）
+    detail = {}       # question -> bool（配对差分分析依赖）
     for sample in data:
         for qa in sample["qa"]:
             pred = qa.get(pk)

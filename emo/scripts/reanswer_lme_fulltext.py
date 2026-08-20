@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""LongMemEval 全文重答（修复 summary 截断 200 字符的致盲 bug）
+"""LongMemEval 全文重答（修复 summary 截断 200 字符的致盲问题）
 
-背景（2026-08-12 实锤）：loader 的 summary = text[:200]，而 LME 金标 turn
+背景：loader 的 summary = text[:200]，而 LME 金标 turn
 中位 292 字符、assistant 金标中位 1225（98% 被截断）。答题 prompt 只注入
 summary → reader 看不见针。本脚本不重检索（直接读主结果的 retrieved_ids），
 从 sqlite 拉 raw_content 全文重新答题——检索证据集与主结果逐题一致，

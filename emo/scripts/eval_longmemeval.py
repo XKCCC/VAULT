@@ -74,10 +74,9 @@ NO_MEMORY_PREFIX = "(No relevant memories were retrieved.)\n\n"
 def format_memories(memories: list, persistent_store=None) -> str:
     """组装答题记忆：默认注入 sqlite 里的 raw_content 全文。
 
-    ⚠️ 2026-08-12 修复：此前只注入 entry.summary（loader 截断 200 字符），
-    LME 金标 turn 中位 292 字符（assistant 中位 1225，98% 被截）→ reader
-    看不见针，答题分系统性失真。全文从 persistent_store 按 mem_id 拉取，
-    检索路径不变（证据集不变，新旧结果可配对）。
+    只注入 entry.summary 会致盲 reader（loader 截断 200 字符；LME 金标 turn
+    中位 292 字符，assistant 中位 1225，98% 被截）。全文从 persistent_store
+    按 mem_id 拉取，检索路径不变（证据集不变，结果可配对分析）。
     """
     if not memories:
         return NO_MEMORY_PREFIX
@@ -103,7 +102,7 @@ def compute_recall(memories: list, answer_session_ids: list, haystack_session_id
 
     无可统计证据（如 abstention 题）返回 None，不进召回统计。
     做梦后 tags 可能被语义标签替换（dreamer 重建条目时），需从 mem_id
-    解析 session 序号兜底（2026-08-11 实锤：做梦库按 tags 算召回全 0）。
+    解析 session 序号兜底（否则做梦库按 tags 算召回会全 0）。
     """
     if not answer_session_ids:
         return None
@@ -165,7 +164,7 @@ def evaluate(args):
         pool = data
         if args.stratified:
             # 分层抽样：每个题型等距取 N 题。数据文件按类型扎堆排序，
-            # --limit 50 会全是 single-session-user（2026-08-11 查实），
+            # --limit 50 会全是 single-session-user，
             # 做梦消融必须分层才能保证品类可归因
             by_type = defaultdict(list)
             for inst in data:
@@ -248,7 +247,7 @@ def evaluate(args):
             dream_stats = {}
             if 1 in steps or 2 in steps:
                 # 合并异步版：每条一次调用同时完成 结构化+关联+supersede
-                # （分离路径的 generate_links 不做 supersede！2026-08-11 查实），
+                # （分离路径的 generate_links 不做 supersede），
                 # batch_size 路并发 —— 比分离串行快约 10x
                 dream_stats.update(asyncio.run(
                     dreamer.structure_and_link_memories_async(batch_size=args.dream_batch)
@@ -257,7 +256,7 @@ def evaluate(args):
                 dream_stats["fused"] = dreamer.fuse_clusters()
             logger.info(f"  做梦完成: {dream_stats}")
 
-        # persistent_store 必传：启用时间轴并集召回（eval_locomo 没传是已知盲区）
+        # persistent_store 必传：启用时间轴并集召回
         retriever = Retriever(index_store, top_k=args.top_k, persistent_store=persistent_store)
         retrieve = make_retrieve_fn(args, retriever, client_info)
 
@@ -293,7 +292,7 @@ def evaluate(args):
             "recall": round(recall, 4) if recall is not None else None,
             "retrieved_sessions": sorted(_retrieved_sessions(memories, inst)),
             # 原始检索 mem_id 全量落盘：任何新指标口径（turn 级/NDCG/未来的）
-            # 都能离线重算，无需重放检索（2026-08-11 口径错配的教训）
+            # 都能离线重算，无需重放检索
             "retrieved_ids": [e.mem_id for e, _ in memories],
         }
         done[qid] = record

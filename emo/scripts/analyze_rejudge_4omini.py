@@ -1,4 +1,4 @@
-"""真 gpt-4o-mini 重判后的全量配对分析（2026-08-18 误标事故修复）。
+"""gpt-4o-mini 裁判口径的全量配对分析。
 
 输入：emo_lme_s_{fulltext,dreamfull_fulltext}_results_judge_{gpt-4o-mini_anscheck,
 gpt-4o-mini_mempro,(qwen 默认)}_detail.json + 结果文件（question_type）

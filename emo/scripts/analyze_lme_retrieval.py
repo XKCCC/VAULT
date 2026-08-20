@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """LongMemEval 检索真实口径分析（turn 级召回 + NDCG@10）
 
-动机（2026-08-11）：全量跑出的 Recall@10 = 0.953 是 **session 级命中率**
+动机：全量跑出的 Recall@10 = 0.953 是 **session 级命中率**
 （证据 session 的任一条 turn 进 top-10 即算覆盖），与论文表 3 的 turn 级 NDCG
 不同单位，不能直接比。本脚本复用与全量完全相同的检索路径（bge-m3 + 精排 +
 时间并集），按 turn 上的 has_answer 标签计算：

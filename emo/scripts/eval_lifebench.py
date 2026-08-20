@@ -227,7 +227,7 @@ def evaluate(args):
             dream_stats = {}
             if 1 in steps or 2 in steps:
                 # 合并异步版：每条一次调用同时完成 结构化+关联+supersede
-                # （分离路径的 generate_links 不做 supersede！2026-08-11 查实），
+                # （分离路径的 generate_links 不做 supersede），
                 # batch_size 路并发 —— 比分离串行快约 10x
                 dream_stats.update(asyncio.run(
                     dreamer.structure_and_link_memories_async(batch_size=args.dream_batch)
@@ -282,8 +282,8 @@ def evaluate(args):
 
             memories = retrieve(question, temporal_now=temporal_now)
 
-            # ── 组装 prompt（全文注入：summary 截断 200 字符会致盲 reader，
-            #    2026-08-12 LME 实锤后同步修复；检索路径不变，新旧可配对）──
+            # ── 组装 prompt（全文注入：summary 截断 200 字符会致盲 reader；
+            #    检索路径不变，新旧可配对）──
             parts = []
             if memories:
                 full_by_id = {

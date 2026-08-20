@@ -169,7 +169,7 @@ class Retriever:
         channel_weights: Optional[Dict[str, float]] = None,
         l3_approx: bool = False,
     ) -> List[Tuple[IndexEntry, float]]:
-        """多路召回 + RRF 融合（2026-08-13 多路召回改造）
+        """多路召回 + RRF 融合
 
         四路独立召回各产排名，RRF 融合后精排：
           C1 dense    ：query 语义 top-dense_pool
