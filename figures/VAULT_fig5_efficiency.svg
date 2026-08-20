@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" viewBox="0 0 1100 640">
+  <rect width="1100" height="640" fill="#FFFFFF"/>
+
+  <text x="550" y="46" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="bold" fill="#2D3748">Accuracy vs. Online Inference Cost</text>
+  <text x="550" y="70" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">LongMemEval-S · VAULT reaches SOTA with single-shot inference</text>
+
+  <!-- 轴 -->
+  <g font-family="Helvetica,Arial,sans-serif">
+    <line x1="120" y1="540" x2="1020" y2="540" stroke="#4A5568" stroke-width="2"/>
+    <line x1="120" y1="540" x2="120" y2="90" stroke="#4A5568" stroke-width="2"/>
+    <text x="570" y="592" text-anchor="middle" font-size="13" fill="#2D3748">online cost (input tokens / question, log scale)</text>
+    <text x="62" y="315" font-size="13" fill="#2D3748" transform="rotate(-90 62 315)" text-anchor="middle">accuracy</text>
+    <g font-size="11" fill="#718096">
+      <text x="306" y="560" text-anchor="middle">3k</text>
+      <text x="511" y="560" text-anchor="middle">10k</text>
+      <text x="720" y="560" text-anchor="middle">30k</text>
+      <text x="926" y="560" text-anchor="middle">115k</text>
+      <text x="108" y="544" text-anchor="end">50</text>
+      <text x="108" y="413" text-anchor="end">60</text>
+      <text x="108" y="281" text-anchor="end">70</text>
+      <text x="108" y="150" text-anchor="end">80</text>
+    </g>
+    <line x1="120" y1="281" x2="1020" y2="281" stroke="#EDF0F3" stroke-width="1.2"/>
+    <line x1="120" y1="413" x2="1020" y2="413" stroke="#EDF0F3" stroke-width="1.2"/>
+    <line x1="120" y1="150" x2="1020" y2="150" stroke="#EDF0F3" stroke-width="1.2"/>
+  </g>
+
+  <!-- 帕累托前沿 -->
+  <path d="M250,520 C300,400 280,250 281,118" fill="none" stroke="#9AA7B5" stroke-width="2" stroke-dasharray="7,5"/>
+  <text x="185" y="300" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#9AA7B5">Pareto</text>
+  <text x="185" y="315" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#9AA7B5">frontier</text>
+
+  <!-- 数据点 -->
+  <g font-family="Helvetica,Arial,sans-serif">
+    <!-- RAG / A-Mem / SimpleMem 灰圆点 -->
+    <circle cx="307" cy="397" r="8" fill="#B0BAC6"/>
+    <text x="324" y="401" font-size="11" fill="#718096">RAG · 60.9</text>
+    <circle cx="307" cy="380" r="8" fill="#B0BAC6"/>
+    <text x="250" y="368" text-anchor="middle" font-size="11" fill="#718096">A-Mem · 62.2</text>
+    <circle cx="307" cy="256" r="8" fill="#B0BAC6"/>
+    <text x="250" y="240" text-anchor="middle" font-size="11" fill="#718096">SimpleMem · 71.6</text>
+
+    <!-- Full-Text 灰方块 -->
+    <rect x="918" y="441" width="16" height="16" fill="#B0BAC6"/>
+    <text x="926" y="478" text-anchor="middle" font-size="11" fill="#718096">Full-Text · 56.9</text>
+
+    <!-- GAM / MemPro 蓝灰三角 -->
+    <path d="M580,232 L572,252 L588,252 z" fill="#7C8FA8"/>
+    <text x="580" y="272" text-anchor="middle" font-size="11" fill="#6B7A8F">GAM · 72.4 (multi-round)</text>
+    <path d="M748,145 L740,165 L756,165 z" fill="#7C8FA8"/>
+    <text x="748" y="185" text-anchor="middle" font-size="11" fill="#6B7A8F">MemPro-15 · 79.0 (multi-round + 15 iters)</text>
+
+    <!-- VAULT 星（x≈281 对应 2.6k tokens） -->
+    <path d="M281,98 L286,111 L300,111 L289,120 L293,134 L281,126 L269,134 L273,120 L262,111 L276,111 z" fill="#E8762B" stroke="#C25E14" stroke-width="1.5"/>
+    <text x="281" y="86" text-anchor="middle" font-size="14" font-weight="bold" fill="#C25E14">VAULT · 84.2 (single-shot)</text>
+    <text x="281" y="152" text-anchor="middle" font-size="11" fill="#C98A54">2.2% of full-context tokens</text>
+  </g>
+
+  <!-- 图例 -->
+  <g font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#4A5568">
+    <rect x="820" y="80" width="190" height="86" rx="6" fill="#FAFBFC" stroke="#D8DEE5" stroke-width="1.2"/>
+    <path d="M840,100 L836,108 L844,108 z" fill="#7C8FA8"/><text x="852" y="107">multi-round agentic</text>
+    <circle cx="840" cy="126" r="6" fill="#B0BAC6"/><text x="852" y="130">single-shot memory/RAG</text>
+    <rect x="834" y="140" width="12" height="12" fill="#B0BAC6"/><text x="852" y="150">long-context</text>
+  </g>
+</svg>

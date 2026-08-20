@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="680" viewBox="0 0 1080 680">
+  <rect width="1080" height="680" fill="#FFFFFF"/>
+
+  <text x="540" y="48" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="bold" fill="#2D3748">The Structuring Threshold</text>
+  <text x="540" y="72" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">offline organization pays if and only if memory items are long and dispersed</text>
+
+  <g font-family="Helvetica,Arial,sans-serif">
+    <!-- 区域着色：左=短文本(净负/中性)，右=长文本(净正) -->
+    <rect x="140" y="110" width="330" height="440" fill="#F4F5F6"/>
+    <rect x="470" y="110" width="470" height="440" fill="#EAF6F2"/>
+    <text x="305" y="135" text-anchor="middle" font-size="12" fill="#9AA7B5">neutral / negative</text>
+    <text x="705" y="135" text-anchor="middle" font-size="12" fill="#2D9D78">structuring helps</text>
+
+    <!-- 坐标轴 -->
+    <line x1="140" y1="550" x2="940" y2="550" stroke="#4A5568" stroke-width="2"/>
+    <line x1="140" y1="550" x2="140" y2="110" stroke="#4A5568" stroke-width="2"/>
+    <text x="540" y="600" text-anchor="middle" font-size="13" fill="#2D3748">memory item length L</text>
+    <text x="180" y="600" font-size="11" fill="#718096">short text</text>
+    <text x="900" y="600" text-anchor="end" font-size="11" fill="#718096">long text</text>
+    <text x="70" y="330" font-size="13" fill="#2D3748" transform="rotate(-90 70 330)" text-anchor="middle">hit probability P_hit</text>
+
+    <!-- 阈值虚线 -->
+    <line x1="470" y1="110" x2="470" y2="550" stroke="#C25E14" stroke-width="2" stroke-dasharray="7,5"/>
+    <text x="470" y="575" text-anchor="middle" font-size="12" font-weight="bold" fill="#C25E14">L* threshold</text>
+
+    <!-- 原文检索曲线：短文高命中 → 长文衰减（左高右低，穿过 L* 交点 (470,300)） -->
+    <path d="M150,150 C300,175 380,240 470,300 C580,390 760,470 930,500" fill="none" stroke="#4A5568" stroke-width="3.2"/>
+    <text x="515" y="440" font-size="13" fill="#4A5568">raw retrieval</text>
+    <text x="515" y="458" font-size="11" fill="#8B98A8">long raw text dilutes</text>
+    <text x="515" y="474" font-size="11" fill="#8B98A8">the query signal in a</text>
+    <text x="515" y="490" font-size="11" fill="#8B98A8">fixed-dim embedding</text>
+
+    <!-- 结构化检索线（高位近水平 + 左端 δ 缺口） -->
+    <line x1="182" y1="305" x2="930" y2="288" stroke="#2B4C7E" stroke-width="3.2"/>
+    <path d="M150,296 L166,312 L182,305" fill="none" stroke="#2B4C7E" stroke-width="3.2"/>
+    <text x="560" y="272" font-size="13" fill="#2B4C7E">structured retrieval</text>
+    <text x="560" y="250" font-size="11" fill="#7C93B8">condensed fact units — hit rate</text>
+    <text x="560" y="236" font-size="11" fill="#7C93B8">decoupled from original length</text>
+    <text x="205" y="340" font-size="11" fill="#2B4C7E">δ paraphrase tax:</text>
+    <text x="205" y="356" font-size="10" fill="#7C93B8">short traces are already optimal;</text>
+    <text x="205" y="370" font-size="10" fill="#7C93B8">summarizing only loses details</text>
+  </g>
+
+  <!-- 数据集落点 -->
+  <g font-family="Helvetica,Arial,sans-serif">
+    <!-- LME：长文深处（右侧） -->
+    <circle cx="800" cy="480" r="8" fill="#E8762B" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="800" y="515" text-anchor="middle" font-size="12" font-weight="bold" fill="#C25E14">LongMemEval-S</text>
+    <text x="800" y="532" text-anchor="middle" font-size="11" fill="#718096">+17.9 recall_all / +10.0 acc</text>
+
+    <!-- LoCoMo：阈值右侧（中等增益，多证据占比中等）；标签放点的右侧避开曲线 -->
+    <circle cx="560" cy="340" r="8" fill="#E8762B" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="576" y="336" font-size="12" font-weight="bold" fill="#C25E14">LoCoMo</text>
+    <text x="576" y="353" font-size="11" fill="#718096">+4.4 acc (moderate, multi-hop)</text>
+
+    <!-- LifeBench：短文侧（左侧） -->
+    <circle cx="250" cy="180" r="8" fill="#E8762B" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="250" y="156" text-anchor="middle" font-size="12" font-weight="bold" fill="#C25E14">LifeBench</text>
+    <text x="250" y="215" text-anchor="middle" font-size="11" fill="#718096">−2.0 recall (short-text tax)</text>
+  </g>
+
+  <text x="540" y="650" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9AA7B5">one prediction registered before its experiment — measured gains form a gradient with the multi-evidence ratio (+10 / +4.4 / ≈0)</text>
+</svg>

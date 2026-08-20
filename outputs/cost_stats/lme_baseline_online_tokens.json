@@ -1,0 +1,3017 @@
+{
+  "stats": {
+    "source": "outputs/longmemeval/emo_lme_s_fulltext_results.json",
+    "tokenizer": "Qwen2.5-7B-Instruct",
+    "n_questions": 500,
+    "input_tokens": {
+      "median": 2742.0,
+      "mean": 2781.9,
+      "p90": 3832,
+      "max": 10873,
+      "total": 1390974
+    },
+    "items_per_q_median": 10.0
+  },
+  "per_question": [
+    {
+      "question_id": "e47becba",
+      "n_items": 10,
+      "input_tokens": 3886,
+      "answer_chars": 59
+    },
+    {
+      "question_id": "6ade9755",
+      "n_items": 10,
+      "input_tokens": 2081,
+      "answer_chars": 414
+    },
+    {
+      "question_id": "c960da58",
+      "n_items": 10,
+      "input_tokens": 3596,
+      "answer_chars": 37
+    },
+    {
+      "question_id": "af8d2e46",
+      "n_items": 10,
+      "input_tokens": 2917,
+      "answer_chars": 642
+    },
+    {
+      "question_id": "21436231",
+      "n_items": 10,
+      "input_tokens": 3832,
+      "answer_chars": 77
+    },
+    {
+      "question_id": "b86304ba",
+      "n_items": 10,
+      "input_tokens": 3334,
+      "answer_chars": 1021
+    },
+    {
+      "question_id": "3f1e9474",
+      "n_items": 10,
+      "input_tokens": 3066,
+      "answer_chars": 913
+    },
+    {
+      "question_id": "bc8a6e93",
+      "n_items": 10,
+      "input_tokens": 2831,
+      "answer_chars": 69
+    },
+    {
+      "question_id": "545bd2b5",
+      "n_items": 10,
+      "input_tokens": 3634,
+      "answer_chars": 100
+    },
+    {
+      "question_id": "c19f7a0b",
+      "n_items": 10,
+      "input_tokens": 2898,
+      "answer_chars": 62
+    },
+    {
+      "question_id": "c14c00dd",
+      "n_items": 10,
+      "input_tokens": 2652,
+      "answer_chars": 67
+    },
+    {
+      "question_id": "bc8a6e93_abs",
+      "n_items": 10,
+      "input_tokens": 1760,
+      "answer_chars": 454
+    },
+    {
+      "question_id": "gpt4_59c863d7",
+      "n_items": 10,
+      "input_tokens": 3693,
+      "answer_chars": 1184
+    },
+    {
+      "question_id": "gpt4_f2262a51",
+      "n_items": 10,
+      "input_tokens": 1662,
+      "answer_chars": 526
+    },
+    {
+      "question_id": "36b9f61e",
+      "n_items": 10,
+      "input_tokens": 2627,
+      "answer_chars": 768
+    },
+    {
+      "question_id": "80ec1f4f",
+      "n_items": 10,
+      "input_tokens": 1682,
+      "answer_chars": 937
+    },
+    {
+      "question_id": "gpt4_2ba83207",
+      "n_items": 10,
+      "input_tokens": 1537,
+      "answer_chars": 1155
+    },
+    {
+      "question_id": "gpt4_31ff4165",
+      "n_items": 10,
+      "input_tokens": 2938,
+      "answer_chars": 831
+    },
+    {
+      "question_id": "60472f9c",
+      "n_items": 10,
+      "input_tokens": 3967,
+      "answer_chars": 369
+    },
+    {
+      "question_id": "gpt4_e05b82a6",
+      "n_items": 10,
+      "input_tokens": 2435,
+      "answer_chars": 1348
+    },
+    {
+      "question_id": "1a8a66a6",
+      "n_items": 10,
+      "input_tokens": 2700,
+      "answer_chars": 1021
+    },
+    {
+      "question_id": "88432d0a_abs",
+      "n_items": 10,
+      "input_tokens": 2289,
+      "answer_chars": 1013
+    },
+    {
+      "question_id": "8a2466db",
+      "n_items": 10,
+      "input_tokens": 3736,
+      "answer_chars": 2842
+    },
+    {
+      "question_id": "195a1a1b",
+      "n_items": 10,
+      "input_tokens": 1888,
+      "answer_chars": 2520
+    },
+    {
+      "question_id": "1a1907b4",
+      "n_items": 10,
+      "input_tokens": 2090,
+      "answer_chars": 1492
+    },
+    {
+      "question_id": "505af2f5",
+      "n_items": 10,
+      "input_tokens": 3015,
+      "answer_chars": 2067
+    },
+    {
+      "question_id": "a89d7624",
+      "n_items": 10,
+      "input_tokens": 2769,
+      "answer_chars": 2157
+    },
+    {
+      "question_id": "d3ab962e",
+      "n_items": 10,
+      "input_tokens": 3155,
+      "answer_chars": 369
+    },
+    {
+      "question_id": "9aaed6a3",
+      "n_items": 10,
+      "input_tokens": 2003,
+      "answer_chars": 1014
+    },
+    {
+      "question_id": "f35224e0",
+      "n_items": 10,
+      "input_tokens": 2622,
+      "answer_chars": 1017
+    },
+    {
+      "question_id": "e25c3b8d",
+      "n_items": 10,
+      "input_tokens": 2669,
+      "answer_chars": 817
+    },
+    {
+      "question_id": "9ee3ecd6",
+      "n_items": 10,
+      "input_tokens": 3115,
+      "answer_chars": 764
+    },
+    {
+      "question_id": "8979f9ec",
+      "n_items": 10,
+      "input_tokens": 3508,
+      "answer_chars": 526
+    },
+    {
+      "question_id": "6c49646a",
+      "n_items": 10,
+      "input_tokens": 2556,
+      "answer_chars": 1267
+    },
+    {
+      "question_id": "61f8c8f8",
+      "n_items": 10,
+      "input_tokens": 3223,
+      "answer_chars": 706
+    },
+    {
+      "question_id": "09ba9854",
+      "n_items": 10,
+      "input_tokens": 2537,
+      "answer_chars": 1371
+    },
+    {
+      "question_id": "a08a253f",
+      "n_items": 10,
+      "input_tokens": 2999,
+      "answer_chars": 694
+    },
+    {
+      "question_id": "8e91e7d9",
+      "n_items": 10,
+      "input_tokens": 4174,
+      "answer_chars": 504
+    },
+    {
+      "question_id": "6456829e_abs",
+      "n_items": 10,
+      "input_tokens": 3555,
+      "answer_chars": 650
+    },
+    {
+      "question_id": "gpt4_f49edff3",
+      "n_items": 10,
+      "input_tokens": 3209,
+      "answer_chars": 2080
+    },
+    {
+      "question_id": "gpt4_4929293a",
+      "n_items": 10,
+      "input_tokens": 2935,
+      "answer_chars": 602
+    },
+    {
+      "question_id": "gpt4_1d80365e",
+      "n_items": 10,
+      "input_tokens": 3040,
+      "answer_chars": 763
+    },
+    {
+      "question_id": "gpt4_1916e0ea",
+      "n_items": 10,
+      "input_tokens": 2317,
+      "answer_chars": 1036
+    },
+    {
+      "question_id": "4dfccbf7",
+      "n_items": 10,
+      "input_tokens": 2606,
+      "answer_chars": 1824
+    },
+    {
+      "question_id": "gpt4_d6585ce8",
+      "n_items": 10,
+      "input_tokens": 3202,
+      "answer_chars": 3602
+    },
+    {
+      "question_id": "gpt4_8e165409",
+      "n_items": 10,
+      "input_tokens": 2318,
+      "answer_chars": 765
+    },
+    {
+      "question_id": "gpt4_af6db32f",
+      "n_items": 10,
+      "input_tokens": 1852,
+      "answer_chars": 425
+    },
+    {
+      "question_id": "gpt4_68e94287",
+      "n_items": 10,
+      "input_tokens": 1924,
+      "answer_chars": 689
+    },
+    {
+      "question_id": "71017277",
+      "n_items": 10,
+      "input_tokens": 1476,
+      "answer_chars": 688
+    },
+    {
+      "question_id": "gpt4_e414231f",
+      "n_items": 10,
+      "input_tokens": 2910,
+      "answer_chars": 831
+    },
+    {
+      "question_id": "4dfccbf8",
+      "n_items": 10,
+      "input_tokens": 2102,
+      "answer_chars": 373
+    },
+    {
+      "question_id": "gpt4_2655b836",
+      "n_items": 10,
+      "input_tokens": 2027,
+      "answer_chars": 394
+    },
+    {
+      "question_id": "2c63a862",
+      "n_items": 10,
+      "input_tokens": 2253,
+      "answer_chars": 1358
+    },
+    {
+      "question_id": "f0853d11",
+      "n_items": 10,
+      "input_tokens": 2939,
+      "answer_chars": 1534
+    },
+    {
+      "question_id": "gpt4_65aabe59",
+      "n_items": 10,
+      "input_tokens": 2703,
+      "answer_chars": 981
+    },
+    {
+      "question_id": "e4e14d04",
+      "n_items": 10,
+      "input_tokens": 1787,
+      "answer_chars": 1204
+    },
+    {
+      "question_id": "cc6d1ec1",
+      "n_items": 10,
+      "input_tokens": 3484,
+      "answer_chars": 734
+    },
+    {
+      "question_id": "a3045048",
+      "n_items": 10,
+      "input_tokens": 1785,
+      "answer_chars": 297
+    },
+    {
+      "question_id": "b29f3365",
+      "n_items": 10,
+      "input_tokens": 2815,
+      "answer_chars": 1102
+    },
+    {
+      "question_id": "gpt4_2f584639",
+      "n_items": 10,
+      "input_tokens": 2494,
+      "answer_chars": 1882
+    },
+    {
+      "question_id": "gpt4_70e84552_abs",
+      "n_items": 10,
+      "input_tokens": 3064,
+      "answer_chars": 1125
+    },
+    {
+      "question_id": "6a1eabeb",
+      "n_items": 10,
+      "input_tokens": 3556,
+      "answer_chars": 336
+    },
+    {
+      "question_id": "71315a70",
+      "n_items": 10,
+      "input_tokens": 4272,
+      "answer_chars": 440
+    },
+    {
+      "question_id": "184da446",
+      "n_items": 10,
+      "input_tokens": 4133,
+      "answer_chars": 631
+    },
+    {
+      "question_id": "41698283",
+      "n_items": 10,
+      "input_tokens": 2345,
+      "answer_chars": 695
+    },
+    {
+      "question_id": "e493bb7c",
+      "n_items": 10,
+      "input_tokens": 3256,
+      "answer_chars": 536
+    },
+    {
+      "question_id": "2133c1b5",
+      "n_items": 10,
+      "input_tokens": 2327,
+      "answer_chars": 457
+    },
+    {
+      "question_id": "ed4ddc30",
+      "n_items": 10,
+      "input_tokens": 3566,
+      "answer_chars": 447
+    },
+    {
+      "question_id": "7e974930",
+      "n_items": 10,
+      "input_tokens": 2070,
+      "answer_chars": 125
+    },
+    {
+      "question_id": "50635ada",
+      "n_items": 10,
+      "input_tokens": 3101,
+      "answer_chars": 730
+    },
+    {
+      "question_id": "69fee5aa",
+      "n_items": 10,
+      "input_tokens": 3495,
+      "answer_chars": 205
+    },
+    {
+      "question_id": "3ba21379",
+      "n_items": 10,
+      "input_tokens": 2979,
+      "answer_chars": 744
+    },
+    {
+      "question_id": "5c40ec5b",
+      "n_items": 10,
+      "input_tokens": 2626,
+      "answer_chars": 1499
+    },
+    {
+      "question_id": "2698e78f_abs",
+      "n_items": 10,
+      "input_tokens": 2107,
+      "answer_chars": 648
+    },
+    {
+      "question_id": "7161e7e2",
+      "n_items": 10,
+      "input_tokens": 2579,
+      "answer_chars": 471
+    },
+    {
+      "question_id": "7e00a6cb",
+      "n_items": 10,
+      "input_tokens": 1472,
+      "answer_chars": 266
+    },
+    {
+      "question_id": "cc539528",
+      "n_items": 10,
+      "input_tokens": 1421,
+      "answer_chars": 821
+    },
+    {
+      "question_id": "1d4da289",
+      "n_items": 10,
+      "input_tokens": 2966,
+      "answer_chars": 805
+    },
+    {
+      "question_id": "8752c811",
+      "n_items": 10,
+      "input_tokens": 2687,
+      "answer_chars": 100
+    },
+    {
+      "question_id": "d596882b",
+      "n_items": 10,
+      "input_tokens": 1728,
+      "answer_chars": 273
+    },
+    {
+      "question_id": "fca762bc",
+      "n_items": 10,
+      "input_tokens": 2222,
+      "answer_chars": 128
+    },
+    {
+      "question_id": "4388e9dd",
+      "n_items": 10,
+      "input_tokens": 2176,
+      "answer_chars": 633
+    },
+    {
+      "question_id": "16c90bf4",
+      "n_items": 10,
+      "input_tokens": 1747,
+      "answer_chars": 588
+    },
+    {
+      "question_id": "65240037",
+      "n_items": 10,
+      "input_tokens": 2189,
+      "answer_chars": 563
+    },
+    {
+      "question_id": "118b2229",
+      "n_items": 10,
+      "input_tokens": 2947,
+      "answer_chars": 240
+    },
+    {
+      "question_id": "6f9b354f",
+      "n_items": 10,
+      "input_tokens": 1628,
+      "answer_chars": 212
+    },
+    {
+      "question_id": "3b6f954b",
+      "n_items": 10,
+      "input_tokens": 3538,
+      "answer_chars": 74
+    },
+    {
+      "question_id": "dccbc061",
+      "n_items": 10,
+      "input_tokens": 2352,
+      "answer_chars": 463
+    },
+    {
+      "question_id": "95bcc1c8",
+      "n_items": 10,
+      "input_tokens": 3628,
+      "answer_chars": 258
+    },
+    {
+      "question_id": "d52b4f67",
+      "n_items": 10,
+      "input_tokens": 1214,
+      "answer_chars": 57
+    },
+    {
+      "question_id": "86b68151",
+      "n_items": 10,
+      "input_tokens": 1657,
+      "answer_chars": 250
+    },
+    {
+      "question_id": "ccb36322",
+      "n_items": 15,
+      "input_tokens": 2247,
+      "answer_chars": 259
+    },
+    {
+      "question_id": "8a137a7f",
+      "n_items": 10,
+      "input_tokens": 3170,
+      "answer_chars": 134
+    },
+    {
+      "question_id": "4100d0a0",
+      "n_items": 10,
+      "input_tokens": 2630,
+      "answer_chars": 238
+    },
+    {
+      "question_id": "36580ce8",
+      "n_items": 10,
+      "input_tokens": 2287,
+      "answer_chars": 70
+    },
+    {
+      "question_id": "19b5f2b3_abs",
+      "n_items": 10,
+      "input_tokens": 2221,
+      "answer_chars": 787
+    },
+    {
+      "question_id": "b5ef892d",
+      "n_items": 15,
+      "input_tokens": 2953,
+      "answer_chars": 1086
+    },
+    {
+      "question_id": "dd2973ad",
+      "n_items": 10,
+      "input_tokens": 2621,
+      "answer_chars": 911
+    },
+    {
+      "question_id": "28dc39ac",
+      "n_items": 10,
+      "input_tokens": 2626,
+      "answer_chars": 1154
+    },
+    {
+      "question_id": "d23cf73b",
+      "n_items": 10,
+      "input_tokens": 2311,
+      "answer_chars": 1472
+    },
+    {
+      "question_id": "2318644b",
+      "n_items": 10,
+      "input_tokens": 3442,
+      "answer_chars": 858
+    },
+    {
+      "question_id": "eeda8a6d",
+      "n_items": 10,
+      "input_tokens": 2810,
+      "answer_chars": 672
+    },
+    {
+      "question_id": "gpt4_194be4b3",
+      "n_items": 10,
+      "input_tokens": 2665,
+      "answer_chars": 1459
+    },
+    {
+      "question_id": "gpt4_731e37d7",
+      "n_items": 10,
+      "input_tokens": 1708,
+      "answer_chars": 1203
+    },
+    {
+      "question_id": "c2ac3c61",
+      "n_items": 10,
+      "input_tokens": 3434,
+      "answer_chars": 267
+    },
+    {
+      "question_id": "80ec1f4f_abs",
+      "n_items": 10,
+      "input_tokens": 1857,
+      "answer_chars": 546
+    },
+    {
+      "question_id": "06878be2",
+      "n_items": 10,
+      "input_tokens": 3347,
+      "answer_chars": 3819
+    },
+    {
+      "question_id": "afdc33df",
+      "n_items": 10,
+      "input_tokens": 3233,
+      "answer_chars": 2639
+    },
+    {
+      "question_id": "09d032c9",
+      "n_items": 15,
+      "input_tokens": 2557,
+      "answer_chars": 1964
+    },
+    {
+      "question_id": "75f70248",
+      "n_items": 15,
+      "input_tokens": 3890,
+      "answer_chars": 2193
+    },
+    {
+      "question_id": "b0479f84",
+      "n_items": 10,
+      "input_tokens": 3769,
+      "answer_chars": 1717
+    },
+    {
+      "question_id": "2311e44b",
+      "n_items": 10,
+      "input_tokens": 3791,
+      "answer_chars": 282
+    },
+    {
+      "question_id": "1f2b8d4f",
+      "n_items": 10,
+      "input_tokens": 3742,
+      "answer_chars": 527
+    },
+    {
+      "question_id": "6456829e",
+      "n_items": 10,
+      "input_tokens": 3820,
+      "answer_chars": 427
+    },
+    {
+      "question_id": "4adc0475",
+      "n_items": 10,
+      "input_tokens": 4425,
+      "answer_chars": 419
+    },
+    {
+      "question_id": "3fdac837",
+      "n_items": 10,
+      "input_tokens": 2816,
+      "answer_chars": 325
+    },
+    {
+      "question_id": "0100672e",
+      "n_items": 10,
+      "input_tokens": 2368,
+      "answer_chars": 407
+    },
+    {
+      "question_id": "1192316e",
+      "n_items": 10,
+      "input_tokens": 2968,
+      "answer_chars": 858
+    },
+    {
+      "question_id": "60159905",
+      "n_items": 10,
+      "input_tokens": 2387,
+      "answer_chars": 1136
+    },
+    {
+      "question_id": "d6062bb9",
+      "n_items": 10,
+      "input_tokens": 2988,
+      "answer_chars": 1036
+    },
+    {
+      "question_id": "f0e564bc",
+      "n_items": 10,
+      "input_tokens": 2960,
+      "answer_chars": 1086
+    },
+    {
+      "question_id": "87f22b4a",
+      "n_items": 15,
+      "input_tokens": 3694,
+      "answer_chars": 346
+    },
+    {
+      "question_id": "e5ba910e_abs",
+      "n_items": 15,
+      "input_tokens": 4012,
+      "answer_chars": 1232
+    },
+    {
+      "question_id": "71017276",
+      "n_items": 10,
+      "input_tokens": 2502,
+      "answer_chars": 674
+    },
+    {
+      "question_id": "gpt4_b5700ca9",
+      "n_items": 10,
+      "input_tokens": 950,
+      "answer_chars": 1564
+    },
+    {
+      "question_id": "gpt4_7f6b06db",
+      "n_items": 10,
+      "input_tokens": 1898,
+      "answer_chars": 3054
+    },
+    {
+      "question_id": "gpt4_7a0daae1",
+      "n_items": 10,
+      "input_tokens": 4321,
+      "answer_chars": 718
+    },
+    {
+      "question_id": "gpt4_61e13b3c",
+      "n_items": 10,
+      "input_tokens": 2097,
+      "answer_chars": 1614
+    },
+    {
+      "question_id": "gpt4_4ef30696",
+      "n_items": 10,
+      "input_tokens": 3151,
+      "answer_chars": 653
+    },
+    {
+      "question_id": "gpt4_74aed68e",
+      "n_items": 10,
+      "input_tokens": 2987,
+      "answer_chars": 487
+    },
+    {
+      "question_id": "eac54adc",
+      "n_items": 10,
+      "input_tokens": 3685,
+      "answer_chars": 664
+    },
+    {
+      "question_id": "gpt4_e414231e",
+      "n_items": 10,
+      "input_tokens": 4243,
+      "answer_chars": 1002
+    },
+    {
+      "question_id": "b46e15ee",
+      "n_items": 10,
+      "input_tokens": 2596,
+      "answer_chars": 367
+    },
+    {
+      "question_id": "gpt4_4929293b",
+      "n_items": 10,
+      "input_tokens": 1383,
+      "answer_chars": 704
+    },
+    {
+      "question_id": "0bc8ad93",
+      "n_items": 10,
+      "input_tokens": 1594,
+      "answer_chars": 574
+    },
+    {
+      "question_id": "gpt4_2487a7cb",
+      "n_items": 10,
+      "input_tokens": 3896,
+      "answer_chars": 708
+    },
+    {
+      "question_id": "gpt4_385a5000",
+      "n_items": 10,
+      "input_tokens": 3341,
+      "answer_chars": 731
+    },
+    {
+      "question_id": "gpt4_6ed717ea",
+      "n_items": 10,
+      "input_tokens": 2729,
+      "answer_chars": 758
+    },
+    {
+      "question_id": "982b5123",
+      "n_items": 10,
+      "input_tokens": 2532,
+      "answer_chars": 655
+    },
+    {
+      "question_id": "c9f37c46",
+      "n_items": 10,
+      "input_tokens": 2563,
+      "answer_chars": 1533
+    },
+    {
+      "question_id": "gpt4_8c8961ae",
+      "n_items": 10,
+      "input_tokens": 3600,
+      "answer_chars": 628
+    },
+    {
+      "question_id": "gpt4_d31cdae3",
+      "n_items": 10,
+      "input_tokens": 3303,
+      "answer_chars": 624
+    },
+    {
+      "question_id": "gpt4_2f56ae70",
+      "n_items": 15,
+      "input_tokens": 2844,
+      "answer_chars": 626
+    },
+    {
+      "question_id": "gpt4_213fd887",
+      "n_items": 10,
+      "input_tokens": 3345,
+      "answer_chars": 637
+    },
+    {
+      "question_id": "gpt4_93159ced_abs",
+      "n_items": 10,
+      "input_tokens": 2624,
+      "answer_chars": 1339
+    },
+    {
+      "question_id": "6aeb4375",
+      "n_items": 10,
+      "input_tokens": 2840,
+      "answer_chars": 430
+    },
+    {
+      "question_id": "89941a93",
+      "n_items": 10,
+      "input_tokens": 3050,
+      "answer_chars": 569
+    },
+    {
+      "question_id": "031748ae",
+      "n_items": 10,
+      "input_tokens": 2753,
+      "answer_chars": 1389
+    },
+    {
+      "question_id": "2698e78f",
+      "n_items": 10,
+      "input_tokens": 2538,
+      "answer_chars": 202
+    },
+    {
+      "question_id": "618f13b2",
+      "n_items": 10,
+      "input_tokens": 3249,
+      "answer_chars": 150
+    },
+    {
+      "question_id": "18bc8abd",
+      "n_items": 10,
+      "input_tokens": 4058,
+      "answer_chars": 264
+    },
+    {
+      "question_id": "8fb83627",
+      "n_items": 10,
+      "input_tokens": 2780,
+      "answer_chars": 535
+    },
+    {
+      "question_id": "603deb26",
+      "n_items": 10,
+      "input_tokens": 3131,
+      "answer_chars": 578
+    },
+    {
+      "question_id": "e66b632c",
+      "n_items": 10,
+      "input_tokens": 3856,
+      "answer_chars": 90
+    },
+    {
+      "question_id": "7401057b",
+      "n_items": 10,
+      "input_tokens": 3830,
+      "answer_chars": 1684
+    },
+    {
+      "question_id": "9bbe84a2",
+      "n_items": 10,
+      "input_tokens": 2774,
+      "answer_chars": 575
+    },
+    {
+      "question_id": "c6853660",
+      "n_items": 15,
+      "input_tokens": 3366,
+      "answer_chars": 495
+    },
+    {
+      "question_id": "2133c1b5_abs",
+      "n_items": 10,
+      "input_tokens": 2719,
+      "answer_chars": 954
+    },
+    {
+      "question_id": "c4f10528",
+      "n_items": 10,
+      "input_tokens": 1930,
+      "answer_chars": 215
+    },
+    {
+      "question_id": "1903aded",
+      "n_items": 10,
+      "input_tokens": 2870,
+      "answer_chars": 104
+    },
+    {
+      "question_id": "dc439ea3",
+      "n_items": 10,
+      "input_tokens": 1603,
+      "answer_chars": 206
+    },
+    {
+      "question_id": "8464fc84",
+      "n_items": 10,
+      "input_tokens": 1537,
+      "answer_chars": 125
+    },
+    {
+      "question_id": "3249768e",
+      "n_items": 10,
+      "input_tokens": 2720,
+      "answer_chars": 398
+    },
+    {
+      "question_id": "e3fc4d6e",
+      "n_items": 10,
+      "input_tokens": 2482,
+      "answer_chars": 708
+    },
+    {
+      "question_id": "7a8d0b71",
+      "n_items": 10,
+      "input_tokens": 3357,
+      "answer_chars": 104
+    },
+    {
+      "question_id": "4baee567",
+      "n_items": 10,
+      "input_tokens": 1272,
+      "answer_chars": 311
+    },
+    {
+      "question_id": "c8f1aeed",
+      "n_items": 10,
+      "input_tokens": 2109,
+      "answer_chars": 202
+    },
+    {
+      "question_id": "778164c6",
+      "n_items": 10,
+      "input_tokens": 1326,
+      "answer_chars": 622
+    },
+    {
+      "question_id": "51a45a95",
+      "n_items": 10,
+      "input_tokens": 2184,
+      "answer_chars": 892
+    },
+    {
+      "question_id": "58ef2f1c",
+      "n_items": 10,
+      "input_tokens": 2258,
+      "answer_chars": 1231
+    },
+    {
+      "question_id": "726462e0",
+      "n_items": 10,
+      "input_tokens": 3135,
+      "answer_chars": 876
+    },
+    {
+      "question_id": "c8c3f81d",
+      "n_items": 10,
+      "input_tokens": 3475,
+      "answer_chars": 305
+    },
+    {
+      "question_id": "0862e8bf",
+      "n_items": 10,
+      "input_tokens": 2863,
+      "answer_chars": 28
+    },
+    {
+      "question_id": "25e5aa4f",
+      "n_items": 10,
+      "input_tokens": 4015,
+      "answer_chars": 65
+    },
+    {
+      "question_id": "577d4d32",
+      "n_items": 10,
+      "input_tokens": 2836,
+      "answer_chars": 154
+    },
+    {
+      "question_id": "001be529",
+      "n_items": 10,
+      "input_tokens": 1872,
+      "answer_chars": 225
+    },
+    {
+      "question_id": "76d63226",
+      "n_items": 10,
+      "input_tokens": 2083,
+      "answer_chars": 172
+    },
+    {
+      "question_id": "29f2956b",
+      "n_items": 10,
+      "input_tokens": 4084,
+      "answer_chars": 193
+    },
+    {
+      "question_id": "3d86fd0a",
+      "n_items": 10,
+      "input_tokens": 1881,
+      "answer_chars": 44
+    },
+    {
+      "question_id": "29f2956b_abs",
+      "n_items": 10,
+      "input_tokens": 2559,
+      "answer_chars": 629
+    },
+    {
+      "question_id": "e831120c",
+      "n_items": 10,
+      "input_tokens": 3369,
+      "answer_chars": 2210
+    },
+    {
+      "question_id": "c4a1ceb8",
+      "n_items": 10,
+      "input_tokens": 3170,
+      "answer_chars": 1950
+    },
+    {
+      "question_id": "gpt4_2f8be40d",
+      "n_items": 15,
+      "input_tokens": 3128,
+      "answer_chars": 1289
+    },
+    {
+      "question_id": "gpt4_7fce9456",
+      "n_items": 10,
+      "input_tokens": 3646,
+      "answer_chars": 701
+    },
+    {
+      "question_id": "2ce6a0f2",
+      "n_items": 10,
+      "input_tokens": 2072,
+      "answer_chars": 810
+    },
+    {
+      "question_id": "2788b940",
+      "n_items": 10,
+      "input_tokens": 2364,
+      "answer_chars": 1124
+    },
+    {
+      "question_id": "a9f6b44c",
+      "n_items": 15,
+      "input_tokens": 1744,
+      "answer_chars": 1891
+    },
+    {
+      "question_id": "edced276",
+      "n_items": 10,
+      "input_tokens": 3277,
+      "answer_chars": 975
+    },
+    {
+      "question_id": "bf659f65",
+      "n_items": 10,
+      "input_tokens": 2901,
+      "answer_chars": 795
+    },
+    {
+      "question_id": "eeda8a6d_abs",
+      "n_items": 10,
+      "input_tokens": 2273,
+      "answer_chars": 484
+    },
+    {
+      "question_id": "75832dbd",
+      "n_items": 10,
+      "input_tokens": 2188,
+      "answer_chars": 3597
+    },
+    {
+      "question_id": "caf03d32",
+      "n_items": 10,
+      "input_tokens": 2755,
+      "answer_chars": 3279
+    },
+    {
+      "question_id": "38146c39",
+      "n_items": 10,
+      "input_tokens": 3833,
+      "answer_chars": 1986
+    },
+    {
+      "question_id": "d6233ab6",
+      "n_items": 15,
+      "input_tokens": 2264,
+      "answer_chars": 1821
+    },
+    {
+      "question_id": "1d4e3b97",
+      "n_items": 10,
+      "input_tokens": 2789,
+      "answer_chars": 1315
+    },
+    {
+      "question_id": "cc06de0d",
+      "n_items": 10,
+      "input_tokens": 2236,
+      "answer_chars": 477
+    },
+    {
+      "question_id": "e6041065",
+      "n_items": 10,
+      "input_tokens": 2974,
+      "answer_chars": 537
+    },
+    {
+      "question_id": "a4996e51",
+      "n_items": 10,
+      "input_tokens": 3186,
+      "answer_chars": 620
+    },
+    {
+      "question_id": "4bc144e2",
+      "n_items": 10,
+      "input_tokens": 2681,
+      "answer_chars": 645
+    },
+    {
+      "question_id": "91b15a6e",
+      "n_items": 10,
+      "input_tokens": 3207,
+      "answer_chars": 2140
+    },
+    {
+      "question_id": "a96c20ee",
+      "n_items": 10,
+      "input_tokens": 3052,
+      "answer_chars": 73
+    },
+    {
+      "question_id": "0ea62687",
+      "n_items": 10,
+      "input_tokens": 2590,
+      "answer_chars": 341
+    },
+    {
+      "question_id": "ef9cf60a",
+      "n_items": 10,
+      "input_tokens": 4217,
+      "answer_chars": 573
+    },
+    {
+      "question_id": "157a136e",
+      "n_items": 10,
+      "input_tokens": 3218,
+      "answer_chars": 476
+    },
+    {
+      "question_id": "078150f1",
+      "n_items": 10,
+      "input_tokens": 3666,
+      "answer_chars": 185
+    },
+    {
+      "question_id": "e56a43b9",
+      "n_items": 10,
+      "input_tokens": 2774,
+      "answer_chars": 851
+    },
+    {
+      "question_id": "a96c20ee_abs",
+      "n_items": 10,
+      "input_tokens": 2013,
+      "answer_chars": 839
+    },
+    {
+      "question_id": "b46e15ed",
+      "n_items": 10,
+      "input_tokens": 4419,
+      "answer_chars": 3773
+    },
+    {
+      "question_id": "9a707b81",
+      "n_items": 10,
+      "input_tokens": 2305,
+      "answer_chars": 1718
+    },
+    {
+      "question_id": "gpt4_6dc9b45b",
+      "n_items": 10,
+      "input_tokens": 2404,
+      "answer_chars": 521
+    },
+    {
+      "question_id": "gpt4_468eb063",
+      "n_items": 10,
+      "input_tokens": 2851,
+      "answer_chars": 534
+    },
+    {
+      "question_id": "gpt4_45189cb4",
+      "n_items": 15,
+      "input_tokens": 4441,
+      "answer_chars": 1456
+    },
+    {
+      "question_id": "gpt4_ec93e27f",
+      "n_items": 10,
+      "input_tokens": 2279,
+      "answer_chars": 1542
+    },
+    {
+      "question_id": "bcbe585f",
+      "n_items": 10,
+      "input_tokens": 1397,
+      "answer_chars": 406
+    },
+    {
+      "question_id": "gpt4_7ddcf75f",
+      "n_items": 10,
+      "input_tokens": 3201,
+      "answer_chars": 626
+    },
+    {
+      "question_id": "gpt4_7ca326fa",
+      "n_items": 10,
+      "input_tokens": 3569,
+      "answer_chars": 1331
+    },
+    {
+      "question_id": "gpt4_d6585ce9",
+      "n_items": 10,
+      "input_tokens": 1230,
+      "answer_chars": 658
+    },
+    {
+      "question_id": "gpt4_468eb064",
+      "n_items": 10,
+      "input_tokens": 1099,
+      "answer_chars": 151
+    },
+    {
+      "question_id": "6e984302",
+      "n_items": 10,
+      "input_tokens": 1439,
+      "answer_chars": 1401
+    },
+    {
+      "question_id": "gpt4_76048e76",
+      "n_items": 10,
+      "input_tokens": 2283,
+      "answer_chars": 738
+    },
+    {
+      "question_id": "2a1811e2",
+      "n_items": 10,
+      "input_tokens": 3941,
+      "answer_chars": 1550
+    },
+    {
+      "question_id": "gpt4_70e84552",
+      "n_items": 10,
+      "input_tokens": 3091,
+      "answer_chars": 1008
+    },
+    {
+      "question_id": "b9cfe692",
+      "n_items": 10,
+      "input_tokens": 2930,
+      "answer_chars": 189
+    },
+    {
+      "question_id": "gpt4_2c50253f",
+      "n_items": 10,
+      "input_tokens": 3546,
+      "answer_chars": 2928
+    },
+    {
+      "question_id": "gpt4_d9af6064",
+      "n_items": 10,
+      "input_tokens": 4015,
+      "answer_chars": 779
+    },
+    {
+      "question_id": "gpt4_cd90e484",
+      "n_items": 10,
+      "input_tokens": 2651,
+      "answer_chars": 904
+    },
+    {
+      "question_id": "6613b389",
+      "n_items": 10,
+      "input_tokens": 3032,
+      "answer_chars": 659
+    },
+    {
+      "question_id": "gpt4_5438fa52",
+      "n_items": 10,
+      "input_tokens": 2190,
+      "answer_chars": 575
+    },
+    {
+      "question_id": "982b5123_abs",
+      "n_items": 10,
+      "input_tokens": 2091,
+      "answer_chars": 502
+    },
+    {
+      "question_id": "830ce83f",
+      "n_items": 10,
+      "input_tokens": 1547,
+      "answer_chars": 33
+    },
+    {
+      "question_id": "ce6d2d27",
+      "n_items": 10,
+      "input_tokens": 3066,
+      "answer_chars": 334
+    },
+    {
+      "question_id": "4d6b87c8",
+      "n_items": 10,
+      "input_tokens": 2882,
+      "answer_chars": 436
+    },
+    {
+      "question_id": "b6019101",
+      "n_items": 10,
+      "input_tokens": 2207,
+      "answer_chars": 180
+    },
+    {
+      "question_id": "72e3ee87",
+      "n_items": 10,
+      "input_tokens": 3044,
+      "answer_chars": 295
+    },
+    {
+      "question_id": "db467c8c",
+      "n_items": 10,
+      "input_tokens": 2891,
+      "answer_chars": 180
+    },
+    {
+      "question_id": "b01defab",
+      "n_items": 10,
+      "input_tokens": 2089,
+      "answer_chars": 872
+    },
+    {
+      "question_id": "59524333",
+      "n_items": 10,
+      "input_tokens": 2963,
+      "answer_chars": 724
+    },
+    {
+      "question_id": "0ddfec37",
+      "n_items": 10,
+      "input_tokens": 2489,
+      "answer_chars": 569
+    },
+    {
+      "question_id": "cf22b7bf",
+      "n_items": 10,
+      "input_tokens": 3649,
+      "answer_chars": 165
+    },
+    {
+      "question_id": "10e09553",
+      "n_items": 10,
+      "input_tokens": 3114,
+      "answer_chars": 1033
+    },
+    {
+      "question_id": "26bdc477",
+      "n_items": 10,
+      "input_tokens": 2762,
+      "answer_chars": 388
+    },
+    {
+      "question_id": "0ddfec37_abs",
+      "n_items": 10,
+      "input_tokens": 2200,
+      "answer_chars": 753
+    },
+    {
+      "question_id": "89527b6b",
+      "n_items": 10,
+      "input_tokens": 4644,
+      "answer_chars": 399
+    },
+    {
+      "question_id": "ceb54acb",
+      "n_items": 10,
+      "input_tokens": 996,
+      "answer_chars": 822
+    },
+    {
+      "question_id": "18dcd5a5",
+      "n_items": 10,
+      "input_tokens": 2180,
+      "answer_chars": 387
+    },
+    {
+      "question_id": "8aef76bc",
+      "n_items": 10,
+      "input_tokens": 1522,
+      "answer_chars": 152
+    },
+    {
+      "question_id": "1b9b7252",
+      "n_items": 10,
+      "input_tokens": 1650,
+      "answer_chars": 482
+    },
+    {
+      "question_id": "51b23612",
+      "n_items": 10,
+      "input_tokens": 1854,
+      "answer_chars": 1531
+    },
+    {
+      "question_id": "a40e080f",
+      "n_items": 10,
+      "input_tokens": 1697,
+      "answer_chars": 862
+    },
+    {
+      "question_id": "561fabcd",
+      "n_items": 10,
+      "input_tokens": 1366,
+      "answer_chars": 1306
+    },
+    {
+      "question_id": "eaca4986",
+      "n_items": 10,
+      "input_tokens": 2562,
+      "answer_chars": 1721
+    },
+    {
+      "question_id": "58bf7951",
+      "n_items": 10,
+      "input_tokens": 1467,
+      "answer_chars": 82
+    },
+    {
+      "question_id": "f8c5f88b",
+      "n_items": 10,
+      "input_tokens": 2821,
+      "answer_chars": 67
+    },
+    {
+      "question_id": "94f70d80",
+      "n_items": 10,
+      "input_tokens": 2538,
+      "answer_chars": 376
+    },
+    {
+      "question_id": "8ebdbe50",
+      "n_items": 10,
+      "input_tokens": 2778,
+      "answer_chars": 58
+    },
+    {
+      "question_id": "853b0a1d",
+      "n_items": 10,
+      "input_tokens": 2892,
+      "answer_chars": 220
+    },
+    {
+      "question_id": "caf9ead2",
+      "n_items": 10,
+      "input_tokens": 1724,
+      "answer_chars": 65
+    },
+    {
+      "question_id": "ec81a493",
+      "n_items": 10,
+      "input_tokens": 2466,
+      "answer_chars": 719
+    },
+    {
+      "question_id": "b320f3f8",
+      "n_items": 10,
+      "input_tokens": 3684,
+      "answer_chars": 762
+    },
+    {
+      "question_id": "86f00804",
+      "n_items": 10,
+      "input_tokens": 2804,
+      "answer_chars": 558
+    },
+    {
+      "question_id": "1faac195",
+      "n_items": 10,
+      "input_tokens": 1984,
+      "answer_chars": 173
+    },
+    {
+      "question_id": "a82c026e",
+      "n_items": 15,
+      "input_tokens": 2404,
+      "answer_chars": 72
+    },
+    {
+      "question_id": "f4f1d8a4_abs",
+      "n_items": 10,
+      "input_tokens": 2320,
+      "answer_chars": 527
+    },
+    {
+      "question_id": "3a704032",
+      "n_items": 10,
+      "input_tokens": 2497,
+      "answer_chars": 1436
+    },
+    {
+      "question_id": "gpt4_a56e767c",
+      "n_items": 10,
+      "input_tokens": 4137,
+      "answer_chars": 1019
+    },
+    {
+      "question_id": "2e6d26dc",
+      "n_items": 10,
+      "input_tokens": 2100,
+      "answer_chars": 1253
+    },
+    {
+      "question_id": "d682f1a2",
+      "n_items": 15,
+      "input_tokens": 3152,
+      "answer_chars": 486
+    },
+    {
+      "question_id": "gpt4_d12ceb0e",
+      "n_items": 10,
+      "input_tokens": 3315,
+      "answer_chars": 592
+    },
+    {
+      "question_id": "60bf93ed",
+      "n_items": 10,
+      "input_tokens": 2400,
+      "answer_chars": 831
+    },
+    {
+      "question_id": "d851d5ba",
+      "n_items": 10,
+      "input_tokens": 3671,
+      "answer_chars": 672
+    },
+    {
+      "question_id": "10d9b85a",
+      "n_items": 10,
+      "input_tokens": 3051,
+      "answer_chars": 559
+    },
+    {
+      "question_id": "gpt4_372c3eed",
+      "n_items": 10,
+      "input_tokens": 4769,
+      "answer_chars": 1333
+    },
+    {
+      "question_id": "60bf93ed_abs",
+      "n_items": 10,
+      "input_tokens": 2278,
+      "answer_chars": 680
+    },
+    {
+      "question_id": "0edc2aef",
+      "n_items": 10,
+      "input_tokens": 3071,
+      "answer_chars": 933
+    },
+    {
+      "question_id": "54026fce",
+      "n_items": 10,
+      "input_tokens": 2851,
+      "answer_chars": 1414
+    },
+    {
+      "question_id": "d24813b1",
+      "n_items": 10,
+      "input_tokens": 2925,
+      "answer_chars": 1579
+    },
+    {
+      "question_id": "1da05512",
+      "n_items": 10,
+      "input_tokens": 4811,
+      "answer_chars": 2603
+    },
+    {
+      "question_id": "07b6f563",
+      "n_items": 10,
+      "input_tokens": 3208,
+      "answer_chars": 1900
+    },
+    {
+      "question_id": "a11281a2",
+      "n_items": 10,
+      "input_tokens": 4501,
+      "answer_chars": 62
+    },
+    {
+      "question_id": "51c32626",
+      "n_items": 10,
+      "input_tokens": 3725,
+      "answer_chars": 771
+    },
+    {
+      "question_id": "3c1045c8",
+      "n_items": 10,
+      "input_tokens": 2052,
+      "answer_chars": 208
+    },
+    {
+      "question_id": "ef66a6e5",
+      "n_items": 10,
+      "input_tokens": 2796,
+      "answer_chars": 776
+    },
+    {
+      "question_id": "27016adc",
+      "n_items": 10,
+      "input_tokens": 3264,
+      "answer_chars": 300
+    },
+    {
+      "question_id": "92a0aa75",
+      "n_items": 10,
+      "input_tokens": 1560,
+      "answer_chars": 463
+    },
+    {
+      "question_id": "67e0d0f2",
+      "n_items": 10,
+      "input_tokens": 2918,
+      "answer_chars": 361
+    },
+    {
+      "question_id": "73d42213",
+      "n_items": 10,
+      "input_tokens": 1982,
+      "answer_chars": 516
+    },
+    {
+      "question_id": "c18a7dc8",
+      "n_items": 10,
+      "input_tokens": 2192,
+      "answer_chars": 675
+    },
+    {
+      "question_id": "8cf4d046",
+      "n_items": 10,
+      "input_tokens": 8214,
+      "answer_chars": 391
+    },
+    {
+      "question_id": "efc3f7c2",
+      "n_items": 10,
+      "input_tokens": 2600,
+      "answer_chars": 583
+    },
+    {
+      "question_id": "ba358f49_abs",
+      "n_items": 10,
+      "input_tokens": 3371,
+      "answer_chars": 1124
+    },
+    {
+      "question_id": "gpt4_fa19884c",
+      "n_items": 10,
+      "input_tokens": 3052,
+      "answer_chars": 1288
+    },
+    {
+      "question_id": "gpt4_1d4ab0c9",
+      "n_items": 10,
+      "input_tokens": 3567,
+      "answer_chars": 2016
+    },
+    {
+      "question_id": "gpt4_8279ba02",
+      "n_items": 10,
+      "input_tokens": 1239,
+      "answer_chars": 94
+    },
+    {
+      "question_id": "gpt4_7abb270c",
+      "n_items": 10,
+      "input_tokens": 3490,
+      "answer_chars": 3690
+    },
+    {
+      "question_id": "2ebe6c90",
+      "n_items": 10,
+      "input_tokens": 2924,
+      "answer_chars": 1480
+    },
+    {
+      "question_id": "6e984301",
+      "n_items": 10,
+      "input_tokens": 4036,
+      "answer_chars": 1582
+    },
+    {
+      "question_id": "gpt4_21adecb5",
+      "n_items": 10,
+      "input_tokens": 4254,
+      "answer_chars": 1898
+    },
+    {
+      "question_id": "gpt4_a2d1d1f6",
+      "n_items": 10,
+      "input_tokens": 2402,
+      "answer_chars": 169
+    },
+    {
+      "question_id": "gpt4_7bc6cf22",
+      "n_items": 10,
+      "input_tokens": 2365,
+      "answer_chars": 441
+    },
+    {
+      "question_id": "gpt4_1e4a8aec",
+      "n_items": 10,
+      "input_tokens": 2484,
+      "answer_chars": 552
+    },
+    {
+      "question_id": "gpt4_fa19884d",
+      "n_items": 10,
+      "input_tokens": 2294,
+      "answer_chars": 800
+    },
+    {
+      "question_id": "gpt4_8279ba03",
+      "n_items": 15,
+      "input_tokens": 1706,
+      "answer_chars": 848
+    },
+    {
+      "question_id": "gpt4_2312f94c",
+      "n_items": 10,
+      "input_tokens": 2155,
+      "answer_chars": 380
+    },
+    {
+      "question_id": "bbf86515",
+      "n_items": 10,
+      "input_tokens": 4437,
+      "answer_chars": 1101
+    },
+    {
+      "question_id": "a3838d2b",
+      "n_items": 10,
+      "input_tokens": 2500,
+      "answer_chars": 507
+    },
+    {
+      "question_id": "gpt4_4edbafa2",
+      "n_items": 10,
+      "input_tokens": 2639,
+      "answer_chars": 552
+    },
+    {
+      "question_id": "dcfa8644",
+      "n_items": 10,
+      "input_tokens": 2522,
+      "answer_chars": 829
+    },
+    {
+      "question_id": "gpt4_7de946e7",
+      "n_items": 10,
+      "input_tokens": 2250,
+      "answer_chars": 1169
+    },
+    {
+      "question_id": "gpt4_88806d6e",
+      "n_items": 10,
+      "input_tokens": 2955,
+      "answer_chars": 532
+    },
+    {
+      "question_id": "gpt4_78cf46a3",
+      "n_items": 10,
+      "input_tokens": 2412,
+      "answer_chars": 723
+    },
+    {
+      "question_id": "gpt4_c27434e8",
+      "n_items": 10,
+      "input_tokens": 3940,
+      "answer_chars": 753
+    },
+    {
+      "question_id": "c8090214_abs",
+      "n_items": 10,
+      "input_tokens": 1078,
+      "answer_chars": 351
+    },
+    {
+      "question_id": "852ce960",
+      "n_items": 10,
+      "input_tokens": 3518,
+      "answer_chars": 56
+    },
+    {
+      "question_id": "9ea5eabc",
+      "n_items": 10,
+      "input_tokens": 2355,
+      "answer_chars": 920
+    },
+    {
+      "question_id": "0f05491a",
+      "n_items": 10,
+      "input_tokens": 1650,
+      "answer_chars": 1294
+    },
+    {
+      "question_id": "45dc21b6",
+      "n_items": 10,
+      "input_tokens": 1670,
+      "answer_chars": 336
+    },
+    {
+      "question_id": "c4ea545c",
+      "n_items": 10,
+      "input_tokens": 2000,
+      "answer_chars": 1995
+    },
+    {
+      "question_id": "7a87bd0c",
+      "n_items": 10,
+      "input_tokens": 2948,
+      "answer_chars": 400
+    },
+    {
+      "question_id": "22d2cb42",
+      "n_items": 10,
+      "input_tokens": 1946,
+      "answer_chars": 285
+    },
+    {
+      "question_id": "5831f84d",
+      "n_items": 10,
+      "input_tokens": 2062,
+      "answer_chars": 445
+    },
+    {
+      "question_id": "f685340e",
+      "n_items": 10,
+      "input_tokens": 2269,
+      "answer_chars": 1534
+    },
+    {
+      "question_id": "a2f3aa27",
+      "n_items": 10,
+      "input_tokens": 3969,
+      "answer_chars": 798
+    },
+    {
+      "question_id": "dad224aa",
+      "n_items": 10,
+      "input_tokens": 2605,
+      "answer_chars": 780
+    },
+    {
+      "question_id": "0977f2af",
+      "n_items": 10,
+      "input_tokens": 3823,
+      "answer_chars": 1076
+    },
+    {
+      "question_id": "f685340e_abs",
+      "n_items": 10,
+      "input_tokens": 2106,
+      "answer_chars": 673
+    },
+    {
+      "question_id": "e9327a54",
+      "n_items": 10,
+      "input_tokens": 2041,
+      "answer_chars": 521
+    },
+    {
+      "question_id": "f523d9fe",
+      "n_items": 10,
+      "input_tokens": 1142,
+      "answer_chars": 230
+    },
+    {
+      "question_id": "488d3006",
+      "n_items": 10,
+      "input_tokens": 1685,
+      "answer_chars": 394
+    },
+    {
+      "question_id": "71a3fd6b",
+      "n_items": 10,
+      "input_tokens": 1751,
+      "answer_chars": 79
+    },
+    {
+      "question_id": "1568498a",
+      "n_items": 10,
+      "input_tokens": 2056,
+      "answer_chars": 271
+    },
+    {
+      "question_id": "3e321797",
+      "n_items": 10,
+      "input_tokens": 1652,
+      "answer_chars": 596
+    },
+    {
+      "question_id": "8b9d4367",
+      "n_items": 10,
+      "input_tokens": 2009,
+      "answer_chars": 260
+    },
+    {
+      "question_id": "b759caee",
+      "n_items": 10,
+      "input_tokens": 1871,
+      "answer_chars": 134
+    },
+    {
+      "question_id": "c7cf7dfd",
+      "n_items": 10,
+      "input_tokens": 1941,
+      "answer_chars": 116
+    },
+    {
+      "question_id": "1e043500",
+      "n_items": 10,
+      "input_tokens": 2190,
+      "answer_chars": 68
+    },
+    {
+      "question_id": "5d3d2817",
+      "n_items": 10,
+      "input_tokens": 1772,
+      "answer_chars": 399
+    },
+    {
+      "question_id": "66f24dbb",
+      "n_items": 10,
+      "input_tokens": 1753,
+      "answer_chars": 95
+    },
+    {
+      "question_id": "6b168ec8",
+      "n_items": 10,
+      "input_tokens": 3722,
+      "answer_chars": 75
+    },
+    {
+      "question_id": "a06e4cfe",
+      "n_items": 10,
+      "input_tokens": 3687,
+      "answer_chars": 240
+    },
+    {
+      "question_id": "8550ddae",
+      "n_items": 15,
+      "input_tokens": 4327,
+      "answer_chars": 54
+    },
+    {
+      "question_id": "15745da0",
+      "n_items": 10,
+      "input_tokens": 3658,
+      "answer_chars": 233
+    },
+    {
+      "question_id": "19b5f2b3",
+      "n_items": 10,
+      "input_tokens": 2604,
+      "answer_chars": 161
+    },
+    {
+      "question_id": "8e9d538c",
+      "n_items": 10,
+      "input_tokens": 10873,
+      "answer_chars": 317
+    },
+    {
+      "question_id": "faba32e5",
+      "n_items": 10,
+      "input_tokens": 3366,
+      "answer_chars": 64
+    },
+    {
+      "question_id": "0862e8bf_abs",
+      "n_items": 10,
+      "input_tokens": 1968,
+      "answer_chars": 337
+    },
+    {
+      "question_id": "0a995998",
+      "n_items": 10,
+      "input_tokens": 3045,
+      "answer_chars": 343
+    },
+    {
+      "question_id": "gpt4_d84a3211",
+      "n_items": 10,
+      "input_tokens": 1802,
+      "answer_chars": 936
+    },
+    {
+      "question_id": "6cb6f249",
+      "n_items": 10,
+      "input_tokens": 2746,
+      "answer_chars": 703
+    },
+    {
+      "question_id": "gpt4_15e38248",
+      "n_items": 10,
+      "input_tokens": 1739,
+      "answer_chars": 2550
+    },
+    {
+      "question_id": "7024f17c",
+      "n_items": 15,
+      "input_tokens": 3958,
+      "answer_chars": 1026
+    },
+    {
+      "question_id": "00ca467f",
+      "n_items": 15,
+      "input_tokens": 2004,
+      "answer_chars": 2393
+    },
+    {
+      "question_id": "9d25d4e0",
+      "n_items": 10,
+      "input_tokens": 2668,
+      "answer_chars": 1438
+    },
+    {
+      "question_id": "5a7937c8",
+      "n_items": 10,
+      "input_tokens": 2885,
+      "answer_chars": 751
+    },
+    {
+      "question_id": "e3038f8c",
+      "n_items": 10,
+      "input_tokens": 2309,
+      "answer_chars": 654
+    },
+    {
+      "question_id": "gpt4_2f91af09",
+      "n_items": 10,
+      "input_tokens": 2697,
+      "answer_chars": 1265
+    },
+    {
+      "question_id": "edced276_abs",
+      "n_items": 10,
+      "input_tokens": 3347,
+      "answer_chars": 550
+    },
+    {
+      "question_id": "35a27287",
+      "n_items": 10,
+      "input_tokens": 3582,
+      "answer_chars": 2240
+    },
+    {
+      "question_id": "06f04340",
+      "n_items": 10,
+      "input_tokens": 2508,
+      "answer_chars": 2291
+    },
+    {
+      "question_id": "57f827a0",
+      "n_items": 10,
+      "input_tokens": 2363,
+      "answer_chars": 2348
+    },
+    {
+      "question_id": "fca70973",
+      "n_items": 10,
+      "input_tokens": 2441,
+      "answer_chars": 2328
+    },
+    {
+      "question_id": "1c0ddc50",
+      "n_items": 10,
+      "input_tokens": 2990,
+      "answer_chars": 2513
+    },
+    {
+      "question_id": "4f54b7c9",
+      "n_items": 10,
+      "input_tokens": 2807,
+      "answer_chars": 799
+    },
+    {
+      "question_id": "d905b33f",
+      "n_items": 10,
+      "input_tokens": 2289,
+      "answer_chars": 659
+    },
+    {
+      "question_id": "60036106",
+      "n_items": 10,
+      "input_tokens": 3797,
+      "answer_chars": 632
+    },
+    {
+      "question_id": "5025383b",
+      "n_items": 10,
+      "input_tokens": 2292,
+      "answer_chars": 824
+    },
+    {
+      "question_id": "720133ac",
+      "n_items": 10,
+      "input_tokens": 2173,
+      "answer_chars": 1328
+    },
+    {
+      "question_id": "3fe836c9",
+      "n_items": 10,
+      "input_tokens": 3681,
+      "answer_chars": 232
+    },
+    {
+      "question_id": "bb7c3b45",
+      "n_items": 10,
+      "input_tokens": 2471,
+      "answer_chars": 1132
+    },
+    {
+      "question_id": "bc149d6b",
+      "n_items": 10,
+      "input_tokens": 2133,
+      "answer_chars": 607
+    },
+    {
+      "question_id": "a3332713",
+      "n_items": 10,
+      "input_tokens": 1455,
+      "answer_chars": 350
+    },
+    {
+      "question_id": "a346bb18",
+      "n_items": 10,
+      "input_tokens": 3488,
+      "answer_chars": 925
+    },
+    {
+      "question_id": "21d02d0d",
+      "n_items": 10,
+      "input_tokens": 3315,
+      "answer_chars": 413
+    },
+    {
+      "question_id": "09ba9854_abs",
+      "n_items": 10,
+      "input_tokens": 1976,
+      "answer_chars": 1491
+    },
+    {
+      "question_id": "0bc8ad92",
+      "n_items": 10,
+      "input_tokens": 2010,
+      "answer_chars": 1162
+    },
+    {
+      "question_id": "gpt4_e072b769",
+      "n_items": 10,
+      "input_tokens": 2060,
+      "answer_chars": 662
+    },
+    {
+      "question_id": "gpt4_18c2b244",
+      "n_items": 10,
+      "input_tokens": 3305,
+      "answer_chars": 533
+    },
+    {
+      "question_id": "gpt4_1e4a8aeb",
+      "n_items": 10,
+      "input_tokens": 3356,
+      "answer_chars": 538
+    },
+    {
+      "question_id": "gpt4_e061b84f",
+      "n_items": 10,
+      "input_tokens": 2657,
+      "answer_chars": 2076
+    },
+    {
+      "question_id": "8077ef71",
+      "n_items": 10,
+      "input_tokens": 2081,
+      "answer_chars": 446
+    },
+    {
+      "question_id": "5e1b23de",
+      "n_items": 10,
+      "input_tokens": 3009,
+      "answer_chars": 238
+    },
+    {
+      "question_id": "gpt4_85da3956",
+      "n_items": 10,
+      "input_tokens": 2143,
+      "answer_chars": 648
+    },
+    {
+      "question_id": "2ebe6c92",
+      "n_items": 10,
+      "input_tokens": 1697,
+      "answer_chars": 509
+    },
+    {
+      "question_id": "gpt4_f420262d",
+      "n_items": 10,
+      "input_tokens": 1980,
+      "answer_chars": 612
+    },
+    {
+      "question_id": "9a707b82",
+      "n_items": 10,
+      "input_tokens": 1618,
+      "answer_chars": 1134
+    },
+    {
+      "question_id": "gpt4_b5700ca0",
+      "n_items": 15,
+      "input_tokens": 2738,
+      "answer_chars": 895
+    },
+    {
+      "question_id": "0bb5a684",
+      "n_items": 10,
+      "input_tokens": 2633,
+      "answer_chars": 297
+    },
+    {
+      "question_id": "gpt4_5dcc0aab",
+      "n_items": 10,
+      "input_tokens": 1749,
+      "answer_chars": 380
+    },
+    {
+      "question_id": "gpt4_93159ced",
+      "n_items": 10,
+      "input_tokens": 2471,
+      "answer_chars": 579
+    },
+    {
+      "question_id": "c8090214",
+      "n_items": 10,
+      "input_tokens": 5020,
+      "answer_chars": 247
+    },
+    {
+      "question_id": "gpt4_b4a80587",
+      "n_items": 10,
+      "input_tokens": 3395,
+      "answer_chars": 1259
+    },
+    {
+      "question_id": "d01c6aa8",
+      "n_items": 10,
+      "input_tokens": 2393,
+      "answer_chars": 1500
+    },
+    {
+      "question_id": "gpt4_4cd9eba1",
+      "n_items": 10,
+      "input_tokens": 3790,
+      "answer_chars": 293
+    },
+    {
+      "question_id": "gpt4_0a05b494",
+      "n_items": 10,
+      "input_tokens": 2702,
+      "answer_chars": 1267
+    },
+    {
+      "question_id": "gpt4_fe651585",
+      "n_items": 10,
+      "input_tokens": 3019,
+      "answer_chars": 1061
+    },
+    {
+      "question_id": "gpt4_c27434e8_abs",
+      "n_items": 10,
+      "input_tokens": 4241,
+      "answer_chars": 732
+    },
+    {
+      "question_id": "945e3d21",
+      "n_items": 10,
+      "input_tokens": 3108,
+      "answer_chars": 545
+    },
+    {
+      "question_id": "07741c44",
+      "n_items": 10,
+      "input_tokens": 2772,
+      "answer_chars": 541
+    },
+    {
+      "question_id": "08e075c7",
+      "n_items": 10,
+      "input_tokens": 3819,
+      "answer_chars": 159
+    },
+    {
+      "question_id": "5a4f22c0",
+      "n_items": 10,
+      "input_tokens": 2266,
+      "answer_chars": 1007
+    },
+    {
+      "question_id": "01493427",
+      "n_items": 10,
+      "input_tokens": 2636,
+      "answer_chars": 256
+    },
+    {
+      "question_id": "e61a7584",
+      "n_items": 10,
+      "input_tokens": 3742,
+      "answer_chars": 192
+    },
+    {
+      "question_id": "0e4e4c46",
+      "n_items": 10,
+      "input_tokens": 2874,
+      "answer_chars": 297
+    },
+    {
+      "question_id": "eace081b",
+      "n_items": 10,
+      "input_tokens": 3104,
+      "answer_chars": 385
+    },
+    {
+      "question_id": "cc5ded98",
+      "n_items": 10,
+      "input_tokens": 2928,
+      "answer_chars": 217
+    },
+    {
+      "question_id": "c7dc5443",
+      "n_items": 10,
+      "input_tokens": 3264,
+      "answer_chars": 190
+    },
+    {
+      "question_id": "ba61f0b9",
+      "n_items": 10,
+      "input_tokens": 3089,
+      "answer_chars": 447
+    },
+    {
+      "question_id": "6aeb4375_abs",
+      "n_items": 10,
+      "input_tokens": 2423,
+      "answer_chars": 735
+    },
+    {
+      "question_id": "89941a94",
+      "n_items": 10,
+      "input_tokens": 3293,
+      "answer_chars": 1429
+    },
+    {
+      "question_id": "4c36ccef",
+      "n_items": 10,
+      "input_tokens": 1324,
+      "answer_chars": 299
+    },
+    {
+      "question_id": "0e5e2d1a",
+      "n_items": 10,
+      "input_tokens": 1912,
+      "answer_chars": 162
+    },
+    {
+      "question_id": "58470ed2",
+      "n_items": 10,
+      "input_tokens": 2598,
+      "answer_chars": 550
+    },
+    {
+      "question_id": "2bf43736",
+      "n_items": 10,
+      "input_tokens": 2759,
+      "answer_chars": 1351
+    },
+    {
+      "question_id": "6222b6eb",
+      "n_items": 10,
+      "input_tokens": 2909,
+      "answer_chars": 636
+    },
+    {
+      "question_id": "e982271f",
+      "n_items": 10,
+      "input_tokens": 1603,
+      "answer_chars": 107
+    },
+    {
+      "question_id": "5809eb10",
+      "n_items": 10,
+      "input_tokens": 2399,
+      "answer_chars": 85
+    },
+    {
+      "question_id": "ac031881",
+      "n_items": 10,
+      "input_tokens": 1103,
+      "answer_chars": 272
+    },
+    {
+      "question_id": "e48988bc",
+      "n_items": 10,
+      "input_tokens": 1678,
+      "answer_chars": 1094
+    },
+    {
+      "question_id": "c5e8278d",
+      "n_items": 10,
+      "input_tokens": 3814,
+      "answer_chars": 53
+    },
+    {
+      "question_id": "7527f7e2",
+      "n_items": 10,
+      "input_tokens": 3053,
+      "answer_chars": 41
+    },
+    {
+      "question_id": "ad7109d1",
+      "n_items": 10,
+      "input_tokens": 2908,
+      "answer_chars": 183
+    },
+    {
+      "question_id": "75499fd8",
+      "n_items": 10,
+      "input_tokens": 3477,
+      "answer_chars": 339
+    },
+    {
+      "question_id": "37d43f65",
+      "n_items": 10,
+      "input_tokens": 3240,
+      "answer_chars": 43
+    },
+    {
+      "question_id": "60d45044",
+      "n_items": 10,
+      "input_tokens": 4098,
+      "answer_chars": 48
+    },
+    {
+      "question_id": "e01b8e2f",
+      "n_items": 10,
+      "input_tokens": 3004,
+      "answer_chars": 928
+    },
+    {
+      "question_id": "4fd1909e",
+      "n_items": 10,
+      "input_tokens": 1330,
+      "answer_chars": 80
+    },
+    {
+      "question_id": "311778f1",
+      "n_items": 10,
+      "input_tokens": 2435,
+      "answer_chars": 881
+    },
+    {
+      "question_id": "f4f1d8a4",
+      "n_items": 10,
+      "input_tokens": 2577,
+      "answer_chars": 60
+    },
+    {
+      "question_id": "15745da0_abs",
+      "n_items": 10,
+      "input_tokens": 3206,
+      "answer_chars": 862
+    },
+    {
+      "question_id": "6d550036",
+      "n_items": 10,
+      "input_tokens": 2177,
+      "answer_chars": 1302
+    },
+    {
+      "question_id": "aae3761f",
+      "n_items": 10,
+      "input_tokens": 3163,
+      "answer_chars": 798
+    },
+    {
+      "question_id": "46a3abf7",
+      "n_items": 10,
+      "input_tokens": 1966,
+      "answer_chars": 3165
+    },
+    {
+      "question_id": "88432d0a",
+      "n_items": 10,
+      "input_tokens": 1845,
+      "answer_chars": 1399
+    },
+    {
+      "question_id": "gpt4_5501fe77",
+      "n_items": 10,
+      "input_tokens": 2191,
+      "answer_chars": 735
+    },
+    {
+      "question_id": "b3c15d39",
+      "n_items": 10,
+      "input_tokens": 3018,
+      "answer_chars": 463
+    },
+    {
+      "question_id": "129d1232",
+      "n_items": 10,
+      "input_tokens": 3300,
+      "answer_chars": 318
+    },
+    {
+      "question_id": "gpt4_ab202e7f",
+      "n_items": 10,
+      "input_tokens": 1981,
+      "answer_chars": 1127
+    },
+    {
+      "question_id": "2b8f3739",
+      "n_items": 10,
+      "input_tokens": 2857,
+      "answer_chars": 478
+    },
+    {
+      "question_id": "81507db6",
+      "n_items": 10,
+      "input_tokens": 2913,
+      "answer_chars": 663
+    },
+    {
+      "question_id": "gpt4_372c3eed_abs",
+      "n_items": 10,
+      "input_tokens": 4148,
+      "answer_chars": 1479
+    },
+    {
+      "question_id": "32260d93",
+      "n_items": 10,
+      "input_tokens": 3387,
+      "answer_chars": 2224
+    },
+    {
+      "question_id": "6b7dfb22",
+      "n_items": 15,
+      "input_tokens": 3934,
+      "answer_chars": 2869
+    },
+    {
+      "question_id": "95228167",
+      "n_items": 10,
+      "input_tokens": 3877,
+      "answer_chars": 2769
+    },
+    {
+      "question_id": "b6025781",
+      "n_items": 10,
+      "input_tokens": 2227,
+      "answer_chars": 2113
+    },
+    {
+      "question_id": "0a34ad58",
+      "n_items": 10,
+      "input_tokens": 3645,
+      "answer_chars": 3725
+    },
+    {
+      "question_id": "85fa3a3f",
+      "n_items": 10,
+      "input_tokens": 1868,
+      "answer_chars": 419
+    },
+    {
+      "question_id": "7405e8b1",
+      "n_items": 10,
+      "input_tokens": 2706,
+      "answer_chars": 899
+    },
+    {
+      "question_id": "681a1674",
+      "n_items": 10,
+      "input_tokens": 2813,
+      "answer_chars": 641
+    },
+    {
+      "question_id": "a1cc6108",
+      "n_items": 10,
+      "input_tokens": 3839,
+      "answer_chars": 624
+    },
+    {
+      "question_id": "77eafa52",
+      "n_items": 10,
+      "input_tokens": 1310,
+      "answer_chars": 710
+    },
+    {
+      "question_id": "1c549ce4",
+      "n_items": 10,
+      "input_tokens": 2527,
+      "answer_chars": 345
+    },
+    {
+      "question_id": "ba358f49",
+      "n_items": 10,
+      "input_tokens": 3988,
+      "answer_chars": 1560
+    },
+    {
+      "question_id": "099778bb",
+      "n_items": 10,
+      "input_tokens": 3331,
+      "answer_chars": 1229
+    },
+    {
+      "question_id": "55241a1f",
+      "n_items": 10,
+      "input_tokens": 3830,
+      "answer_chars": 1009
+    },
+    {
+      "question_id": "37f165cf",
+      "n_items": 10,
+      "input_tokens": 3636,
+      "answer_chars": 684
+    },
+    {
+      "question_id": "2311e44b_abs",
+      "n_items": 10,
+      "input_tokens": 3800,
+      "answer_chars": 1047
+    },
+    {
+      "question_id": "gpt4_59149c77",
+      "n_items": 10,
+      "input_tokens": 3563,
+      "answer_chars": 1102
+    },
+    {
+      "question_id": "af082822",
+      "n_items": 10,
+      "input_tokens": 1206,
+      "answer_chars": 553
+    },
+    {
+      "question_id": "0db4c65d",
+      "n_items": 10,
+      "input_tokens": 2441,
+      "answer_chars": 2441
+    },
+    {
+      "question_id": "gpt4_a1b77f9c",
+      "n_items": 10,
+      "input_tokens": 3811,
+      "answer_chars": 1651
+    },
+    {
+      "question_id": "gpt4_4fc4f797",
+      "n_items": 10,
+      "input_tokens": 3750,
+      "answer_chars": 2318
+    },
+    {
+      "question_id": "370a8ff4",
+      "n_items": 10,
+      "input_tokens": 2711,
+      "answer_chars": 1901
+    },
+    {
+      "question_id": "gpt4_f420262c",
+      "n_items": 10,
+      "input_tokens": 1925,
+      "answer_chars": 2022
+    },
+    {
+      "question_id": "gpt4_98f46fc6",
+      "n_items": 10,
+      "input_tokens": 3082,
+      "answer_chars": 770
+    },
+    {
+      "question_id": "gpt4_b0863698",
+      "n_items": 10,
+      "input_tokens": 2639,
+      "answer_chars": 138
+    },
+    {
+      "question_id": "gpt4_e061b84g",
+      "n_items": 10,
+      "input_tokens": 2746,
+      "answer_chars": 336
+    },
+    {
+      "question_id": "gpt4_59149c78",
+      "n_items": 10,
+      "input_tokens": 1961,
+      "answer_chars": 2476
+    },
+    {
+      "question_id": "eac54add",
+      "n_items": 10,
+      "input_tokens": 1018,
+      "answer_chars": 1358
+    },
+    {
+      "question_id": "gpt4_68e94288",
+      "n_items": 15,
+      "input_tokens": 2546,
+      "answer_chars": 730
+    },
+    {
+      "question_id": "08f4fc43",
+      "n_items": 10,
+      "input_tokens": 3132,
+      "answer_chars": 2372
+    },
+    {
+      "question_id": "gpt4_0b2f1d21",
+      "n_items": 10,
+      "input_tokens": 3556,
+      "answer_chars": 859
+    },
+    {
+      "question_id": "gpt4_2d58bcd6",
+      "n_items": 10,
+      "input_tokens": 3485,
+      "answer_chars": 963
+    },
+    {
+      "question_id": "gpt4_483dd43c",
+      "n_items": 10,
+      "input_tokens": 2475,
+      "answer_chars": 1472
+    },
+    {
+      "question_id": "gpt4_9a159967",
+      "n_items": 10,
+      "input_tokens": 2216,
+      "answer_chars": 1399
+    },
+    {
+      "question_id": "993da5e2",
+      "n_items": 10,
+      "input_tokens": 1827,
+      "answer_chars": 269
+    },
+    {
+      "question_id": "gpt4_93f6379c",
+      "n_items": 10,
+      "input_tokens": 3881,
+      "answer_chars": 816
+    },
+    {
+      "question_id": "gpt4_1a1dc16d",
+      "n_items": 10,
+      "input_tokens": 2986,
+      "answer_chars": 506
+    },
+    {
+      "question_id": "8c18457d",
+      "n_items": 10,
+      "input_tokens": 2536,
+      "answer_chars": 1277
+    },
+    {
+      "question_id": "gpt4_fe651585_abs",
+      "n_items": 10,
+      "input_tokens": 5327,
+      "answer_chars": 1020
+    },
+    {
+      "question_id": "d7c942c3",
+      "n_items": 10,
+      "input_tokens": 1226,
+      "answer_chars": 455
+    },
+    {
+      "question_id": "a1eacc2a",
+      "n_items": 10,
+      "input_tokens": 3273,
+      "answer_chars": 402
+    },
+    {
+      "question_id": "f9e8c073",
+      "n_items": 10,
+      "input_tokens": 3202,
+      "answer_chars": 264
+    },
+    {
+      "question_id": "6071bd76",
+      "n_items": 10,
+      "input_tokens": 3040,
+      "answer_chars": 1034
+    },
+    {
+      "question_id": "6a27ffc2",
+      "n_items": 10,
+      "input_tokens": 5558,
+      "answer_chars": 427
+    },
+    {
+      "question_id": "1cea1afa",
+      "n_items": 10,
+      "input_tokens": 4098,
+      "answer_chars": 459
+    },
+    {
+      "question_id": "4b24c848",
+      "n_items": 10,
+      "input_tokens": 2584,
+      "answer_chars": 220
+    },
+    {
+      "question_id": "affe2881",
+      "n_items": 10,
+      "input_tokens": 2515,
+      "answer_chars": 418
+    },
+    {
+      "question_id": "dfde3500",
+      "n_items": 10,
+      "input_tokens": 1116,
+      "answer_chars": 451
+    },
+    {
+      "question_id": "06db6396",
+      "n_items": 10,
+      "input_tokens": 3369,
+      "answer_chars": 242
+    },
+    {
+      "question_id": "42ec0761",
+      "n_items": 10,
+      "input_tokens": 3413,
+      "answer_chars": 422
+    },
+    {
+      "question_id": "031748ae_abs",
+      "n_items": 10,
+      "input_tokens": 2498,
+      "answer_chars": 1329
+    },
+    {
+      "question_id": "07741c45",
+      "n_items": 10,
+      "input_tokens": 2772,
+      "answer_chars": 411
+    },
+    {
+      "question_id": "6ae235be",
+      "n_items": 10,
+      "input_tokens": 4197,
+      "answer_chars": 1075
+    },
+    {
+      "question_id": "fea54f57",
+      "n_items": 10,
+      "input_tokens": 1356,
+      "answer_chars": 497
+    },
+    {
+      "question_id": "8cf51dda",
+      "n_items": 10,
+      "input_tokens": 5244,
+      "answer_chars": 738
+    },
+    {
+      "question_id": "70b3e69b",
+      "n_items": 10,
+      "input_tokens": 2148,
+      "answer_chars": 453
+    },
+    {
+      "question_id": "e8a79c70",
+      "n_items": 10,
+      "input_tokens": 2420,
+      "answer_chars": 974
+    },
+    {
+      "question_id": "352ab8bd",
+      "n_items": 10,
+      "input_tokens": 3709,
+      "answer_chars": 192
+    },
+    {
+      "question_id": "41275add",
+      "n_items": 10,
+      "input_tokens": 1675,
+      "answer_chars": 465
+    },
+    {
+      "question_id": "28bcfaac",
+      "n_items": 10,
+      "input_tokens": 2533,
+      "answer_chars": 256
+    },
+    {
+      "question_id": "1de5cff2",
+      "n_items": 10,
+      "input_tokens": 1625,
+      "answer_chars": 184
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="580" viewBox="0 0 1240 580">
+  <rect width="1240" height="580" fill="#FFFFFF"/>
+
+  <!-- 分面板分隔线 -->
+  <line x1="630" y1="60" x2="630" y2="530" stroke="#D8DEE5" stroke-width="1.5"/>
+
+  <!-- ═══ 左面板：图×时间跷跷板 ═══ -->
+  <text x="330" y="52" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#2D3748">Graph expansion: a category seesaw</text>
+  <text x="330" y="74" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">LongMemEval-S · with vs without graph expansion (on the organized bank)</text>
+
+  <g font-family="Helvetica,Arial,sans-serif">
+    <!-- 中线 -->
+    <line x1="120" y1="240" x2="560" y2="240" stroke="#4A5568" stroke-width="2"/>
+    <!-- MS 上 +5 -->
+    <rect x="180" y="160" width="130" height="80" rx="6" fill="#2D9D78" opacity="0.9"/>
+    <text x="245" y="196" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">multi-session</text>
+    <text x="245" y="216" text-anchor="middle" font-size="12" fill="#EAF6F2">0.692 → 0.729</text>
+    <text x="245" y="146" text-anchor="middle" font-size="13" font-weight="bold" fill="#2D9D78">+5 flips</text>
+    <!-- temporal 下 -10 -->
+    <rect x="370" y="240" width="130" height="140" rx="6" fill="#B98A6A" opacity="0.85"/>
+    <text x="435" y="306" text-anchor="middle" font-size="12" font-weight="bold" fill="#FFFFFF">temporal</text>
+    <text x="435" y="326" text-anchor="middle" font-size="12" fill="#FBF3EC">0.767 → 0.692</text>
+    <text x="435" y="404" text-anchor="middle" font-size="13" font-weight="bold" fill="#A06844">−10 flips</text>
+  </g>
+
+  <!-- 机理小图 -->
+  <g font-family="Helvetica,Arial,sans-serif">
+    <rect x="150" y="440" width="92" height="34" rx="4" fill="#FFFFFF" stroke="#8B98A8" stroke-width="1.3"/>
+    <text x="196" y="461" text-anchor="middle" font-size="10" fill="#4A5568">Mar 12</text>
+    <rect x="258" y="440" width="92" height="34" rx="4" fill="#FFFFFF" stroke="#C25E14" stroke-width="1.5"/>
+    <text x="304" y="461" text-anchor="middle" font-size="10" fill="#C25E14">Jun 03</text>
+    <line x1="296" y1="445" x2="312" y2="469" stroke="#C25E14" stroke-width="1.6"/>
+    <line x1="312" y1="445" x2="296" y2="469" stroke="#C25E14" stroke-width="1.6"/>
+    <rect x="366" y="440" width="92" height="34" rx="4" fill="#FFFFFF" stroke="#C25E14" stroke-width="1.5"/>
+    <text x="412" y="461" text-anchor="middle" font-size="10" fill="#C25E14">Sep 20</text>
+    <line x1="404" y1="445" x2="420" y2="469" stroke="#C25E14" stroke-width="1.6"/>
+    <line x1="420" y1="445" x2="404" y2="469" stroke="#C25E14" stroke-width="1.6"/>
+    <text x="330" y="502" text-anchor="middle" font-size="11" fill="#718096">same-event, wrong-time neighbors enter top-10 via edges,</text>
+    <text x="330" y="519" text-anchor="middle" font-size="11" fill="#718096">displacing the correct-time evidence</text>
+    <text x="330" y="546" text-anchor="middle" font-size="11" font-weight="bold" fill="#2B4C7E">fix: time-window-filtered neighbor expansion</text>
+  </g>
+
+  <!-- ═══ 右面板：LifeBench 边界 ═══ -->
+  <text x="935" y="52" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="17" font-weight="bold" fill="#2D3748">Boundary: short-text regime (LifeBench)</text>
+  <text x="935" y="74" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">single user, 197 paired questions · null-effect band ±2.5 pts</text>
+
+  <!-- 噪声带 -->
+  <rect x="873" y="270" width="154" height="135" fill="#F0F1F3"/>
+  <text x="1027" y="258" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#9AA7B5">null-effect band ±2.5 (35–40)</text>
+
+  <g font-family="Helvetica,Arial,sans-serif">
+    <!-- 横条：y 中线 185；值映射 30→x 720, 45→x 1180  (x = 720 + (v-30)/15*460) -->
+    <!-- baseline 37.5 → x = 950 -->
+    <line x1="720" y1="400" x2="1180" y2="400" stroke="#C6D0DB" stroke-width="1.5"/>
+    <g font-size="11" fill="#718096">
+      <text x="720" y="422" text-anchor="middle">30</text>
+      <text x="873" y="422" text-anchor="middle">35</text>
+      <text x="1026" y="422" text-anchor="middle">40</text>
+      <text x="1180" y="422" text-anchor="middle">45</text>
+    </g>
+
+    <!-- 各配置竖条: 37.5→950, 34.5→858, 37.1→937, 35.5→889, 33.0→812, 33.5→827 -->
+    <g>
+      <rect x="946" y="280" width="9" height="120" fill="#4A5568"/>
+      <text x="950" y="416" text-anchor="middle" font-size="10" fill="#4A5568">baseline 37.5</text>
+      <rect x="854" y="295" width="9" height="105" fill="#7C9CC4"/>
+      <text x="858" y="416" text-anchor="middle" font-size="10" fill="#6B87AC">no-graph 34.5</text>
+      <rect x="933" y="288" width="9" height="112" fill="#2D9D78"/>
+      <text x="937" y="432" text-anchor="middle" font-size="10" fill="#2D9D78">+graph 37.1</text>
+      <rect x="885" y="292" width="9" height="108" fill="#9DB6D4"/>
+      <text x="889" y="448" text-anchor="middle" font-size="10" fill="#6B87AC">V1 35.5</text>
+      <rect x="808" y="302" width="9" height="98" fill="#B0BAC6"/>
+      <text x="812" y="432" text-anchor="middle" font-size="10" fill="#9AA7B5">V2 33.0</text>
+      <rect x="823" y="299" width="9" height="101" fill="#8FA8C4"/>
+      <text x="827" y="448" text-anchor="middle" font-size="10" fill="#6B87AC">V3 33.5</text>
+    </g>
+
+    <!-- 竖条底部基准线 -->
+    
+
+    <text x="935" y="492" text-anchor="middle" font-size="11" fill="#718096">short texts are already optimal for retrieval; summarization only loses</text>
+    <text x="935" y="509" text-anchor="middle" font-size="11" fill="#718096">information (recall −2.0) — structuring gains grow with text length</text>
+  </g>
+</svg>

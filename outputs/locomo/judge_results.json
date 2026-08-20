@@ -1,0 +1,770 @@
+[
+  {
+    "file": "outputs/locomo/locomo_bge_v2_rr_results.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 80.29,
+        "n": 817,
+        "judge_fail": 24
+      },
+      "Multi-hop": {
+        "j": 77.06,
+        "n": 279,
+        "judge_fail": 3
+      },
+      "Temporal": {
+        "j": 64.89,
+        "n": 319,
+        "judge_fail": 2
+      },
+      "Open-domain": {
+        "j": 52.13,
+        "n": 94,
+        "judge_fail": 2
+      }
+    },
+    "overall": {
+      "j": 74.69,
+      "n": 1509
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_3b_best_results.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 72.94,
+        "n": 824,
+        "judge_fail": 17
+      },
+      "Multi-hop": {
+        "j": 71.33,
+        "n": 279,
+        "judge_fail": 3
+      },
+      "Temporal": {
+        "j": 50.0,
+        "n": 320
+      }
+    },
+    "overall": {
+      "j": 65.83
+    },
+    "_note": "2026-08-12 覆盖事故后重建；OD 分项与 overall.n 丢失（当时输出被截断），如需精确值重判该文件"
+  },
+  {
+    "file": "outputs/locomo/locomo_bge_v2_rr_fulltext_results.json",
+    "judge": "o4-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 81.21,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 76.24,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 64.49,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 44.79,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 74.55,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_fulltext_cat3cot_results.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 82.99,
+        "n": 823
+      },
+      "Multi-hop": {
+        "j": 75.99,
+        "n": 279
+      },
+      "Temporal": {
+        "j": 66.98,
+        "n": 321
+      },
+      "Open-domain": {
+        "j": 53.68,
+        "n": 95
+      }
+    },
+    "overall": {
+      "j": 76.48,
+      "n": 1518
+    },
+    "_note": "cat3 两阶段 CoT 变体；非 cat3 题答案与 fulltext 版完全相同，分项差异即裁判噪声（±0.5-1）"
+  },
+  {
+    "file": "outputs/locomo/locomo_fulltext_cat3cot_v2_results.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 82.75,
+        "n": 823,
+        "judge_fail": 18
+      },
+      "Multi-hop": {
+        "j": 75.99,
+        "n": 279,
+        "judge_fail": 3
+      },
+      "Temporal": {
+        "j": 67.29,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 56.84,
+        "n": 95,
+        "judge_fail": 1
+      }
+    },
+    "overall": {
+      "j": 76.61,
+      "n": 1518
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_bge_v2_rr_fulltext_results.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 83.44,
+        "n": 818
+      },
+      "Multi-hop": {
+        "j": 77.14,
+        "n": 278
+      },
+      "Temporal": {
+        "j": 66.36,
+        "n": 320
+      },
+      "Open-domain": {
+        "j": 55.79,
+        "n": 94
+      }
+    },
+    "overall": {
+      "j": 76.9,
+      "n": 1510
+    },
+    "_note": "2026-08-14 补回（o4-mini 条目曾按 file 单键覆盖本条）；L3 注入修正版重判"
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_full.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 82.42,
+        "n": 819,
+        "judge_fail": 22
+      },
+      "Multi-hop": {
+        "j": 81.49,
+        "n": 281,
+        "judge_fail": 1
+      },
+      "Temporal": {
+        "j": 69.16,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 56.84,
+        "n": 95,
+        "judge_fail": 1
+      }
+    },
+    "overall": {
+      "j": 77.84,
+      "n": 1516
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_full.json",
+    "judge": "o4-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 81.21,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 81.21,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 68.54,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 48.96,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 76.56,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/budget_top50_fulltext.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 87.09,
+        "n": 829,
+        "judge_fail": 12
+      },
+      "Multi-hop": {
+        "j": 84.4,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 71.03,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 58.95,
+        "n": 95,
+        "judge_fail": 1
+      }
+    },
+    "overall": {
+      "j": 81.47,
+      "n": 1527
+    }
+  },
+  {
+    "file": "outputs/locomo/budget_top200_fulltext.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 90.83,
+        "n": 829,
+        "judge_fail": 12
+      },
+      "Multi-hop": {
+        "j": 87.86,
+        "n": 280,
+        "judge_fail": 2
+      },
+      "Temporal": {
+        "j": 71.34,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 70.21,
+        "n": 94,
+        "judge_fail": 2
+      }
+    },
+    "overall": {
+      "j": 84.91,
+      "n": 1524
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_top200_rr_graph.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 91.56,
+        "n": 829,
+        "judge_fail": 12
+      },
+      "Multi-hop": {
+        "j": 91.79,
+        "n": 280,
+        "judge_fail": 2
+      },
+      "Temporal": {
+        "j": 73.52,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 65.59,
+        "n": 93,
+        "judge_fail": 3
+      }
+    },
+    "overall": {
+      "j": 86.21,
+      "n": 1523
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_bge_v2_rr_fulltext_results.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 85.26,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 78.01,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 71.34,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 61.46,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 79.55,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_full.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 84.78,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 83.33,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 78.82,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 63.54,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 81.95,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_top200_rr_graph.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 93.1,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 91.84,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 81.93,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 69.79,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 89.09,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_full_v3prompt.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 85.52,
+        "n": 829,
+        "judge_fail": 12
+      },
+      "Multi-hop": {
+        "j": 86.17,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 69.78,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 56.25,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 80.5,
+      "n": 1528
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_full_v3prompt.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 87.87,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 86.52,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 78.5,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 69.79,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 84.55,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_v3_4omini_reader.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 85.27,
+        "n": 835,
+        "judge_fail": 6
+      },
+      "Multi-hop": {
+        "j": 84.7,
+        "n": 281,
+        "judge_fail": 1
+      },
+      "Temporal": {
+        "j": 61.68,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 60.0,
+        "n": 95,
+        "judge_fail": 1
+      }
+    },
+    "overall": {
+      "j": 78.66,
+      "n": 1532
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_v3_4omini_reader.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 88.35,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 86.17,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 74.45,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 72.92,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 84.09,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_bge_full.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 88.65,
+        "n": 828,
+        "judge_fail": 13
+      },
+      "Multi-hop": {
+        "j": 89.29,
+        "n": 280,
+        "judge_fail": 2
+      },
+      "Temporal": {
+        "j": 71.34,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 57.45,
+        "n": 94,
+        "judge_fail": 2
+      }
+    },
+    "overall": {
+      "j": 83.19,
+      "n": 1523
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_bge_full.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 91.01,
+        "n": 834,
+        "judge_fail": 7
+      },
+      "Multi-hop": {
+        "j": 90.32,
+        "n": 279,
+        "judge_fail": 3
+      },
+      "Temporal": {
+        "j": 78.93,
+        "n": 318,
+        "judge_fail": 3
+      },
+      "Open-domain": {
+        "j": 68.75,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 86.97,
+      "n": 1527
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_bge_top50_v3.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 91.87,
+        "n": 836,
+        "judge_fail": 5
+      },
+      "Multi-hop": {
+        "j": 91.13,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 72.9,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 64.89,
+        "n": 94,
+        "judge_fail": 2
+      }
+    },
+    "overall": {
+      "j": 86.11,
+      "n": 1533
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_bge_top50_v3.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 93.1,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 93.26,
+        "n": 282,
+        "judge_fail": 0
+      },
+      "Temporal": {
+        "j": 81.62,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 73.96,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 89.55,
+      "n": 1540
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_nodream_bge_v3.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 84.36,
+        "n": 831,
+        "judge_fail": 10
+      },
+      "Multi-hop": {
+        "j": 80.65,
+        "n": 279,
+        "judge_fail": 3
+      },
+      "Temporal": {
+        "j": 68.54,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 58.95,
+        "n": 95,
+        "judge_fail": 1
+      }
+    },
+    "overall": {
+      "j": 78.77,
+      "n": 1526
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_nodream_bge_v3.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 87.51,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 81.85,
+        "n": 281,
+        "judge_fail": 1
+      },
+      "Temporal": {
+        "j": 73.44,
+        "n": 320,
+        "judge_fail": 1
+      },
+      "Open-domain": {
+        "j": 67.37,
+        "n": 95,
+        "judge_fail": 1
+      }
+    },
+    "overall": {
+      "j": 82.3,
+      "n": 1537
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_bge_v3_4omini_reader.json",
+    "judge": "qwen3.7-max",
+    "by_category": {
+      "Single-hop": {
+        "j": 87.12,
+        "n": 831,
+        "judge_fail": 10
+      },
+      "Multi-hop": {
+        "j": 87.5,
+        "n": 280,
+        "judge_fail": 2
+      },
+      "Temporal": {
+        "j": 59.5,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 60.64,
+        "n": 94,
+        "judge_fail": 2
+      }
+    },
+    "overall": {
+      "j": 79.75,
+      "n": 1526
+    }
+  },
+  {
+    "file": "outputs/locomo/locomo_dream_bge_v3_4omini_reader.json",
+    "judge": "gpt-4o-mini",
+    "by_category": {
+      "Single-hop": {
+        "j": 91.44,
+        "n": 841,
+        "judge_fail": 0
+      },
+      "Multi-hop": {
+        "j": 87.54,
+        "n": 281,
+        "judge_fail": 1
+      },
+      "Temporal": {
+        "j": 71.34,
+        "n": 321,
+        "judge_fail": 0
+      },
+      "Open-domain": {
+        "j": 73.96,
+        "n": 96,
+        "judge_fail": 0
+      }
+    },
+    "overall": {
+      "j": 85.45,
+      "n": 1539
+    }
+  }
+]

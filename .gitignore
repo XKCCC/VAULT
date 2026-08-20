@@ -1,0 +1,30 @@
+# secrets — never commit
+.env
+.env.*
+*.key
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# memory library artifacts (rebuildable, GB-scale) — see REPRODUCING.md
+emo/memory/*_chroma*/
+emo/memory/*_sqlite*/
+*.db
+*.sqlite3
+
+# third-party clones (fetch from upstream, see REPRODUCING.md §1)
+/locomo/
+/LongMemEval/
+/LifeBench-memory/
+/memory-benchmarks/
+/MemPro/
+/agent-memory-leaderboard/
+
+# large answer files (attached to GitHub Release instead)
+outputs/longmemeval/emo_lme_*.json
+!outputs/longmemeval/*_judge_*detail.json
+outputs/locomo/*.json
+!outputs/locomo/judge_results.json
+outputs/lifebench/

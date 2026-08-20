@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "VAULT: Versioned, Associative, and Unabridged Long-term Traces for Agent Memory"
+authors:
+  - family-names: "Anonymous"
+    given-names: ""
+year: 2027
+url: "https://github.com/XKCCC/VAULT"
+notes: "ICLR 2027 submission (under review). Author information will be added upon publication."

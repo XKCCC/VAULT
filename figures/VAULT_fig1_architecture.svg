@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="720" viewBox="0 0 1240 720">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6B7A8F"/>
+    </marker>
+    <marker id="arrOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#E8762B"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="720" fill="#FFFFFF"/>
+
+  <!-- ═══ 左侧写入 ═══ -->
+  <text x="60" y="120" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">write</text>
+  <g>
+    <rect x="55" y="135" width="76" height="50" rx="4" fill="#FFFFFF" stroke="#9AA7B5" stroke-width="1.5"/>
+    <rect x="62" y="142" width="76" height="50" rx="4" fill="#FFFFFF" stroke="#9AA7B5" stroke-width="1.5"/>
+    <rect x="69" y="149" width="76" height="50" rx="4" fill="#FFFFFF" stroke="#6B7A8F" stroke-width="1.8"/>
+    <text x="107" y="171" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#4A5568">new memory</text>
+    <text x="107" y="185" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#9AA7B5">raw trace</text>
+  </g>
+  <line x1="150" y1="175" x2="196" y2="175" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- ═══ 内容层 ═══ -->
+  <rect x="200" y="80" width="400" height="215" rx="10" fill="#F5F6F7" stroke="#4A5568" stroke-width="2.6"/>
+  <text x="222" y="116" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="bold" fill="#2D3748">Content Layer</text>
+  <text x="222" y="137" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">never rewritten · source of truth · SQLite</text>
+  <g font-family="Helvetica,Arial,sans-serif">
+    <rect x="222" y="158" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#8B98A8" stroke-width="1.4"/>
+    <text x="276" y="176" text-anchor="middle" font-size="11" fill="#4A5568">2025-03-12</text>
+    <text x="276" y="191" text-anchor="middle" font-size="11" fill="#9AA7B5">exam: marker 6.2</text>
+    <rect x="342" y="158" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#8B98A8" stroke-width="1.4"/>
+    <text x="396" y="176" text-anchor="middle" font-size="11" fill="#4A5568">2025-03-13</text>
+    <text x="396" y="191" text-anchor="middle" font-size="11" fill="#9AA7B5">diet advice</text>
+    <rect x="462" y="158" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#8B98A8" stroke-width="1.4"/>
+    <text x="516" y="176" text-anchor="middle" font-size="11" fill="#4A5568">2025-06-01</text>
+    <text x="516" y="191" text-anchor="middle" font-size="11" fill="#9AA7B5">recheck: normal</text>
+    <rect x="222" y="214" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#8B98A8" stroke-width="1.4" stroke-dasharray="5,4"/>
+    <rect x="342" y="214" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#8B98A8" stroke-width="1.4" stroke-dasharray="5,4"/>
+    <rect x="462" y="214" width="108" height="44" rx="4" fill="#FFFFFF" stroke="#8B98A8" stroke-width="1.4" stroke-dasharray="5,4"/>
+    <text x="516" y="240" text-anchor="middle" font-size="11" fill="#B0BAC6">…</text>
+  </g>
+
+  <!-- ═══ 索引层 ═══ -->
+  <rect x="200" y="380" width="400" height="250" rx="10" fill="#EDF3FA" stroke="#7C9CC4" stroke-width="2"/>
+  <text x="222" y="416" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="bold" fill="#2B4C7E">Index Layer</text>
+  <text x="222" y="437" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#6B87AC">disposable &amp; rebuildable · ChromaDB + bge-m3</text>
+  <g font-family="Helvetica,Arial,sans-serif">
+    <rect x="222" y="456" width="176" height="72" rx="6" fill="#FFFFFF" stroke="#9DB6D4" stroke-width="1.4"/>
+    <text x="310" y="486" text-anchor="middle" font-size="12" fill="#2B4C7E">structured entries</text>
+    <text x="310" y="503" text-anchor="middle" font-size="11" fill="#8FA8C4">summary + facts + labels</text>
+    <rect x="406" y="456" width="176" height="72" rx="6" fill="#FFFFFF" stroke="#9DB6D4" stroke-width="1.4"/>
+    <circle cx="452" cy="486" r="5" fill="#4A72A8"/><circle cx="470" cy="472" r="5" fill="#4A72A8"/><circle cx="478" cy="494" r="5" fill="#4A72A8"/>
+    <line x1="452" y1="486" x2="470" y2="472" stroke="#4A72A8" stroke-width="1.4"/>
+    <line x1="452" y1="486" x2="478" y2="494" stroke="#4A72A8" stroke-width="1.4"/>
+    <text x="520" y="486" text-anchor="middle" font-size="12" fill="#2B4C7E">associative graph</text>
+    <text x="520" y="503" text-anchor="middle" font-size="11" fill="#8FA8C4">LLM-judged links</text>
+    <rect x="222" y="540" width="176" height="72" rx="6" fill="#FFFFFF" stroke="#9DB6D4" stroke-width="1.4"/>
+    <text x="310" y="570" text-anchor="middle" font-size="12" fill="#2B4C7E">supersede marks</text>
+    <text x="310" y="587" text-anchor="middle" font-size="11" fill="#8FA8C4">version governance</text>
+    <rect x="406" y="540" width="176" height="72" rx="6" fill="#FFFFFF" stroke="#9DB6D4" stroke-width="1.4"/>
+    <text x="494" y="570" text-anchor="middle" font-size="12" fill="#2B4C7E">L3 thematic cards</text>
+    <text x="494" y="587" text-anchor="middle" font-size="11" fill="#8FA8C4">background cards</text>
+  </g>
+
+  <!-- 内容层 → 索引层 -->
+  <line x1="400" y1="295" x2="400" y2="372" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+  <text x="412" y="330" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">offline restructuring</text>
+  <text x="412" y="347" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">(index only)</text>
+
+  <!-- ═══ 在线路径 ═══ -->
+  <text x="660" y="392" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">online, single-shot</text>
+  <rect x="660" y="405" width="110" height="44" rx="6" fill="#FFFFFF" stroke="#6B7A8F" stroke-width="1.6"/>
+  <text x="715" y="432" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#2D3748">user query</text>
+
+  <!-- 索引层 → dense retrieval -->
+  <line x1="600" y1="505" x2="756" y2="505" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+  <!-- query → dense retrieval -->
+  <line x1="715" y1="449" x2="770" y2="476" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <g font-family="Helvetica,Arial,sans-serif">
+    <rect x="760" y="476" width="88" height="58" rx="6" fill="#FFFFFF" stroke="#7C9CC4" stroke-width="1.5"/>
+    <text x="804" y="501" text-anchor="middle" font-size="11" fill="#2B4C7E">dense</text>
+    <text x="804" y="517" text-anchor="middle" font-size="11" fill="#2B4C7E">retrieval</text>
+
+    <rect x="858" y="476" width="88" height="58" rx="6" fill="#FFFFFF" stroke="#7C9CC4" stroke-width="1.5"/>
+    <text x="902" y="501" text-anchor="middle" font-size="11" fill="#2B4C7E">cross-enc.</text>
+    <text x="902" y="517" text-anchor="middle" font-size="11" fill="#2B4C7E">rerank</text>
+
+    <rect x="956" y="476" width="88" height="58" rx="6" fill="#FFFFFF" stroke="#7C9CC4" stroke-width="1.5"/>
+    <text x="1000" y="501" text-anchor="middle" font-size="11" fill="#2B4C7E">graph</text>
+    <text x="1000" y="517" text-anchor="middle" font-size="11" fill="#2B4C7E">expand</text>
+
+    <rect x="1054" y="476" width="88" height="58" rx="6" fill="#FFFFFF" stroke="#7C9CC4" stroke-width="1.5"/>
+    <text x="1098" y="501" text-anchor="middle" font-size="11" fill="#2B4C7E">temporal</text>
+    <text x="1098" y="517" text-anchor="middle" font-size="11" fill="#2B4C7E">union</text>
+
+    <rect x="1152" y="476" width="88" height="58" rx="6" fill="#FFFFFF" stroke="#7C9CC4" stroke-width="1.5"/>
+    <text x="1196" y="501" text-anchor="middle" font-size="11" fill="#2B4C7E">supersede</text>
+    <text x="1196" y="517" text-anchor="middle" font-size="11" fill="#2B4C7E">filter</text>
+  </g>
+  <line x1="848" y1="505" x2="856" y2="505" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="946" y1="505" x2="954" y2="505" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="1044" y1="505" x2="1052" y2="505" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+  <line x1="1142" y1="505" x2="1150" y2="505" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+
+  <!-- 检索链 → 闸门（selected IDs 控制线，虚线） -->
+  <line x1="1196" y1="476" x2="1196" y2="338" stroke="#6B7A8F" stroke-width="1.6" stroke-dasharray="6,4" marker-end="url(#arr)"/>
+  <text x="1188" y="415" text-anchor="end" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#718096">select top-k</text>
+  
+
+  <!-- ═══ 闸门 ═══ -->
+  <rect x="1075" y="270" width="165" height="62" rx="8" fill="#FFF4EA" stroke="#E8762B" stroke-width="2.2"/>
+  <text x="1157" y="296" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" font-weight="bold" fill="#C25E14">selector</text>
+  <text x="1157" y="316" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="11" fill="#C98A54">raw content of top-k only</text>
+
+  <!-- 闸门 → Reader -->
+  <line x1="1100" y1="270" x2="1063" y2="207" stroke="#E8762B" stroke-width="4" marker-end="url(#arrOrange)"/>
+
+  <!-- Reader -->
+  <rect x="960" y="120" width="180" height="84" rx="8" fill="#FFFFFF" stroke="#2B4C7E" stroke-width="2.4"/>
+  <text x="1050" y="156" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="20" font-weight="bold" fill="#2D3748">Reader</text>
+  <text x="1050" y="178" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#718096">LLM · one generation</text>
+  <line x1="1140" y1="162" x2="1196" y2="162" stroke="#6B7A8F" stroke-width="1.8" marker-end="url(#arr)"/>
+  <rect x="1198" y="140" width="42" height="44" rx="6" fill="#FFFFFF" stroke="#6B7A8F" stroke-width="1.6"/>
+  <text x="1219" y="167" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#2D3748">ans</text>
+
+  <!-- ═══ 全文注入（主角：内容层 → 闸门，肘形） ═══ -->
+  <path d="M600,162 L920,162 L920,301 L1067,301" fill="none" stroke="#E8762B" stroke-width="5" marker-end="url(#arrOrange)"/>
+  <text x="760" y="146" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="13" font-weight="bold" fill="#E8762B">full-fidelity injection</text>
+  <text x="760" y="200" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#E8762B">only the selected items' raw content reaches the reader</text>
+
+  <!-- 底部注记 -->
+  <text x="620" y="680" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" fill="#9AA7B5">the index is disposable; the content is not · single-shot: 1 retrieval + 1 generation</text>
+</svg>
