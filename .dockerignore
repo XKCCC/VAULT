@@ -1,0 +1,15 @@
+.git
+__pycache__
+*.pyc
+.ipynb_checkpoints
+
+# not needed inside the serving image
+outputs/
+figures/
+*.md
+!AML_SUBMISSION.md
+
+# local model weights are downloaded at build time; never bake host copies
+emo/models/
+emo/memory/*_chroma*/
+emo/memory/*_sqlite*/

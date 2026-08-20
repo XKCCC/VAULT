@@ -92,6 +92,8 @@ python emo/scripts/judge_locomo.py --files outputs/locomo/locomo_results.json
 
 Full reproduction chains for every headline number (LongMemEval, LoCoMo, dream ablation, cost measurement): **[REPRODUCING.md](REPRODUCING.md)**.
 
+AML (Agent Memory Leaderboard) participants: run instructions, Docker, Add/Search locations, authorship, and the full method list are in **[AML_SUBMISSION.md](AML_SUBMISSION.md)**.
+
 ## How it works (60 seconds)
 
 ```
