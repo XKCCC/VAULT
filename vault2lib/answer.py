@@ -61,14 +61,19 @@ async def main():
     sem = asyncio.Semaphore(args.concurrency)
 
     async def one(q):
-        pred = await answer_one(client, sem, args.db, q["sample_id"], q["question"])
+        try:
+            pred = await answer_one(client, sem, args.db, q["sample_id"], q["question"])
+        except Exception as e:  # noqa: BLE001  与 csr_ab 同口径：失败题不提交（分母 1380）
+            print(f"  [skip] {q['qa_id']}: {type(e).__name__}: {e}", flush=True)
+            return None
         return {"qa_id": q["qa_id"], "predicted_answer": pred}
 
     with open(args.out, "a") as f:
         for i in range(0, len(todo), 50):
             batch = await asyncio.gather(*[one(q) for q in todo[i:i + 50]])
             for r in batch:
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+                if r:
+                    f.write(json.dumps(r, ensure_ascii=False) + "\n")
             f.flush()
             print(f"  [{min(i + 50, len(todo))}/{len(todo)}]", flush=True)
     print("vault2 完成 →", args.out, flush=True)
