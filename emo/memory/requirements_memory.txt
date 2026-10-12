@@ -1,0 +1,32 @@
+# EMO Memory System Dependencies
+# 安装: pip install -r emo/memory/requirements_memory.txt
+
+# 向量存储 + 内置 embedding
+chromadb>=0.5.0
+
+# sentence-transformers (ChromaDB 的 default embedding 依赖它)
+sentence-transformers>=2.2.0
+
+# numpy (向量计算)
+numpy>=1.24.0
+
+# ── LoCoMo 评估额外依赖 ──
+# openai (DashScope API 兼容接口)
+openai>=1.0.0
+
+# nltk (Porter Stemmer, 用于 F1 评估; 与 LoCoMo 原始评估一致)
+# 安装后需要: python -c "import nltk; nltk.download('punkt')"
+nltk>=3.8
+
+# regex (LoCoMo 评估函数依赖)
+regex>=2023.0
+
+# ── Buffer 双路召回 ──
+# faiss-cpu (Buffer 内的向量检索)
+faiss-cpu>=1.7.0
+
+# rank_bm25 (Buffer 内的关键词检索)
+rank-bm25>=0.2.2
+
+# ── 标签分类器 ──
+scikit-learn>=1.3.0

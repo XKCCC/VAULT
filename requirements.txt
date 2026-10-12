@@ -1,0 +1,13 @@
+# VAULT2 依赖（2026-10-12 于 python 3.13 / CUDA 12.4 环境验证）
+# torch 按本机 CUDA 装对应 wheel（验证版 2.6.0+cu124），其余按 pin 装
+numpy==2.4.4
+openai==3.3.1
+httpx==0.28.1
+chromadb==1.5.9
+sentence-transformers==5.6.0
+transformers==5.12.1
+peft==0.19.1
+scikit-learn==1.9.0
+python-dateutil==2.9.0.post0
+torch==2.6.0
+# 判分本地服务（可选）：vllm==0.12.x 系，见 tools/serve_judge_qwen3_14b.sh
