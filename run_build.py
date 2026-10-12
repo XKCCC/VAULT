@@ -24,7 +24,7 @@ def phase1_dream(out_dir: Path):
            "--model", MODEL_LITELLM, "--prompt-version", "v3", "--rerank", "--graph-expand",
            "--dream", "--dream-steps", "1,2,4", "--dream-batch", "32", "--raw-turns",
            "--limit", "1",
-           "--embed_model", EMBED,
+           "--embed-model", EMBED,
            "--chroma-dir", str(out_dir.parent / (out_dir.name + "_chroma")),
            "--sqlite-dir", str(out_dir),
            "--out-file", str(ROOT / "outputs" / f"{out_dir.name}_build_eval.json")]
