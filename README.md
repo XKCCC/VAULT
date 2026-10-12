@@ -51,6 +51,12 @@ python run_answer.py --db /path/to/lib \
 
 可选环境变量：`VAULT2_MODELS_DIR`（权重根）、`EMO_COST_LOG=<jsonl>`（成本打点）。
 
+一键复现（建库 → 答题 → 官方可比尺判分，断点可续；题集 `locomo/data/refined_questions.jsonl` 随 repo）：
+
+```bash
+bash tools/repro_locomo.sh            # 默认库 libs/locomo_repro
+```
+
 ## 冻结常数（改任何一个 = 新实验，不是 vault2）
 
 | 常数 | 值 | | 常数 | 值 |

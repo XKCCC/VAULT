@@ -10,3 +10,4 @@ emo/models/*/
 *_chroma/
 *.imgpatch*
 .qwen/
+libs/
