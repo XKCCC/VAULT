@@ -13,7 +13,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
-from vault2lib.constants import EMBED  # noqa: E402
+from vault2lib.constants import EMBED, RERANKER  # noqa: E402
 
 MODEL_LITELLM = "dashscope/qwen3.7-max"   # eval_locomo 走 litellm 命名
 MODEL_PLAIN = "qwen3.7-max"               # csr_topic_migrate 走 dashscope 兼容端点
@@ -21,7 +21,8 @@ MODEL_PLAIN = "qwen3.7-max"               # csr_topic_migrate 走 dashscope 兼�
 
 def phase1_dream(out_dir: Path):
     cmd = [sys.executable, str(ROOT / "emo" / "scripts" / "eval_locomo.py"),
-           "--model", MODEL_LITELLM, "--prompt-version", "v3", "--rerank", "--graph-expand",
+           "--model", MODEL_LITELLM, "--prompt-version", "v3", "--rerank",
+           "--rerank-model", RERANKER, "--graph-expand",
            "--dream", "--dream-steps", "1,2,4", "--dream-batch", "32", "--raw-turns",
            "--limit", "1",
            "--embed-model", EMBED,
