@@ -13,7 +13,7 @@ cd "$REFINED" || exit 1
 EVALUATOR_MODEL="${JUDGE_MODEL:-qwen3-14b}" \
 EVALUATOR_BASE_URL="${JUDGE_BASE_URL:-http://localhost:8001/v1}" \
 EVALUATOR_API_KEY="${JUDGE_API_KEY:-token-abc}" \
-conda run -n emo --no-capture-output python -m src.evaluate \
+conda run -n emo --no-capture-output python src/evaluate.py \
   --questions-path data/public/questions.jsonl \
   --predictions-path "$PRED" \
   --output-path "$OUTP" \
