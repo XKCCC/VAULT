@@ -8,6 +8,8 @@
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PRED="$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
 OUTP="${2:-${PRED%.jsonl}_scored.jsonl}"
+mkdir -p "$(dirname "$OUTP")"
+OUTP="$(cd "$(dirname "$OUTP")" && pwd)/$(basename "$OUTP")"
 REFINED="${REFINED_REPO:-/tmp/LoCoMo_refined}"
 cd "$REFINED" || exit 1
 EVALUATOR_MODEL="${JUDGE_MODEL:-qwen3-14b}" \
