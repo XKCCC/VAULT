@@ -8,7 +8,10 @@
 #   CU13COMPAT_LIB=/path/to/cu13/libs bash tools/serve_judge_qwen3_14b.sh
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 MODELS_DIR="${VAULT2_MODELS_DIR:-$ROOT/emo/models}"
-[ -n "${CU13COMPAT_LIB:-}" ] && export LD_LIBRARY_PATH="$CU13COMPAT_LIB:$LD_LIBRARY_PATH"
+# vllm2 环境的 cu13 运行时库（libcudart/libnvrtc 的 .so.13，vLLM 0.27 启动必需）；
+# CU13COMPAT_LIB 可额外前置自定义目录
+CONDA_BASE="$(conda info --base 2>/dev/null)"
+export LD_LIBRARY_PATH="${CU13COMPAT_LIB:+$CU13COMPAT_LIB:}$CONDA_BASE/envs/${JUDGE_CONDA_ENV:-vllm2}/lib/python3.14/site-packages/nvidia/cu13/lib:$LD_LIBRARY_PATH"
 exec conda run -n "${JUDGE_CONDA_ENV:-vllm2}" --no-capture-output python3 -m vllm.entrypoints.openai.api_server \
   --model "$MODELS_DIR/Qwen3-14B" \
   --served-model-name qwen3-14b \
