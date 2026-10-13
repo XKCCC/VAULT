@@ -11,3 +11,4 @@ scikit-learn==1.9.0
 python-dateutil==2.9.0.post0
 torch==2.6.0
 # 判分本地服务（可选）：vllm==0.12.x 系，见 tools/serve_judge_qwen3_14b.sh
+# AML 对接层（可选，aml/）：fastapi==0.136.3 已验证，uvicorn 随环境版本
