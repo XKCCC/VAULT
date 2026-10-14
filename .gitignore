@@ -11,3 +11,4 @@ emo/models/*/
 *.imgpatch*
 .qwen/
 libs/
+aml_libs/
