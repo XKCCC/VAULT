@@ -12,7 +12,7 @@ Step2 关联边 + supersede 版本治理 → Step4 event_timestamp（相对日�
 话题迁移 Pass1-3（簇文档 = 叙事 + 时间线；时间线日期权威 = event_timestamp）。
 
 **读侧（在线，`vault2lib/`）**：
-1. CSR 两级检索：话题文档 top6 选簇 → 簇内成员 + 稠密兜底 15 → bge-reranker top30 →
+1. CSR 两级检索：话题文档 top6 选簇 → 簇内成员 + 稠密兜底 25 → bge-reranker top30 →
    簇内原文决胜 RRF(k=60) → top20；
 2. session 合并（同 session 命中按原 turn 序拼段，修复跨 turn 组装）；
 3. 答题前判缺补充（diagnose → 双路混合召回 RRF → 单缺口选 ≤2，总缺口 ≤3）；
@@ -63,9 +63,11 @@ bash tools/repro_locomo.sh            # 默认库 libs/locomo_repro
 |---|---|---|---|---|
 | round-1 簇数 | 6 | | 判缺缺口上限 | 3 |
 | 终池 top_n | 20 | | 单缺口补充上限 | 2 |
-| 稠密兜底 | 15 | | 检测截断 | 240 字符 |
+| 稠密兜底 | 25 | | 检测截断 | 240 字符 |
 | RRF k | 60 | | 诊断截断 | 200 字符 |
 | 原文决胜候选 | 30 | | reader/aux 模型 | qwen3.7-max |
+
+变更记录：2026-10-15 稠密兜底 15→25（消融采纳：同尺 +1.01、翻 51/37、阶梯单调；topk 维持 20、combo 不采纳）。复现分待重跑更新（79.71/79.67 为兜底 15 时代数字）。
 
 ## 休眠区（代码在快照里保留，入口不启用）
 

@@ -14,7 +14,7 @@ AUX_MODEL = "qwen3.7-max"
 
 N_CLUSTERS = 6        # round-1 话题簇数
 TOP_N = 20            # 终池大小
-N_FALLBACK = 15       # 稠密兜底条数
+N_FALLBACK = 25       # 稠密兜底条数（2026-10-15 消融采纳 15→25：同尺 +1.01/翻 51/37/阶梯单调；topk 维持 20）
 RRF_K = 60            # RRF 常数
 RRF_CAND = 30         # 原文决胜候选数
 GAPS_MAX = 3          # 单题最多诊断缺口数
