@@ -79,19 +79,3 @@ temporal 题时间线注入（悖论：对统一 prompt 是负债）、图遍历
 
 - LoCoMo refined：**80.32**（cat1 62.4 / cat2 82.9 / cat3 76.5 / cat4 84.4，n=1382 同尺）；
   vs dense 锚 v2.7 75.83：+4.49；vs MemoraX SOTA 82.65：-2.33
-
-## 验证（2026-10-12，30 题烟测，库=locomo_sqlite_dream_bge_q37max）
-
-| 对照 | 逐字一致 | 说明 |
-|---|---|---|
-| 读侧 vs headline 臂（csr_ab --evroute） | 24/29 可比 | 5 题不一致全为表层变体（大小写×2、duration 表述、add-on 冗短、列表语序）；第 30 题落在两臂全量同缺 2 题集（conv-26#q0024 / conv-50#q0037；官方 1382 题、同提交 1380） |
-| 读侧自抖动（同代码重跑） | 22/30 | dashscope temp-0 API 抖动基线 = 8/30，形态与上表同构 |
-| repo 入口（run_answer.py，外部 cwd）vs 冻结单文件版 | 21/30 | 9 题全为表层变体（大小写×4/表述×3/duration 形态/列表语序），与自抖动基线同量级 → repo 化移植零系统偏差 |
-
-跨代码不一致率 5/29（17%）< 自抖动 8/30（27%）→ 冻结读侧与 headline 臂无系统偏差。
-
-## 给同门 / 开源读者
-
-- 跑实验改机制：请 fork 后改 `vault2lib/`，并把它当**新实验**记录，不要自称 vault2。
-- 开源前清单（上 GitHub 前完成）：LICENSE 文件、作者/机构信息、凭据零残留检查
-  （`grep -rE "ldbd_sk_|API_KEY=" .` 应无命中）、AML 对接层 `aml/` 合入。
