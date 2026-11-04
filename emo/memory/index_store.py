@@ -214,6 +214,9 @@ class IndexStore:
         # ChromaDB 需要多请求一些：后面还要按 current_weight / superseded 过滤
         fetch_k = top_k * 3 if min_weight > 0 else top_k * 2
 
+        if not query or not query.strip() or self._collection.count() == 0:
+            # 空 query（dream 链接阶段 raw 为空串）或空集合：chroma 会拒收空 embeddings
+            return []
         results = self._collection.query(
             query_embeddings=[self._query_embedding(query)],
             n_results=min(fetch_k, max(self._collection.count(), 1)),

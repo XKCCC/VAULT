@@ -17,6 +17,7 @@ from vault2lib.prompts import CHAIN_PROMPT, DIAG_PROMPT
 _ENV = {}
 _RAW = {}
 _BM25 = {}
+_VECS = {}
 _XE = None
 
 
@@ -36,11 +37,17 @@ def get_env(db_dir, sid):
     con = sqlite3.connect(str(Path(db_dir) / f"{sid}.db"))
     mems = {r[0]: (r[1], r[2] or "") for r in con.execute(
         "SELECT mem_id, session_id, summary FROM memory_files WHERE mem_id NOT LIKE 'l3_%'")}
-    rows = con.execute(
-        "SELECT topic_id, name, narrative, timeline_json FROM topic_cluster").fetchall()
-    mrows = con.execute("SELECT topic_id, mem_id FROM topic_member").fetchall()
+    try:
+        rows = con.execute(
+            "SELECT topic_id, name, narrative, timeline_json FROM topic_cluster").fetchall()
+        mrows = con.execute("SELECT topic_id, mem_id FROM topic_member").fetchall()
+    except sqlite3.OperationalError:
+        # 未做梦新库尚无话题表：降级稠密单路，不 500（migrate 后补表并失效缓存）
+        rows, mrows = [], []
     ets = {r[0]: (r[1] or "") for r in con.execute(
         "SELECT mem_id, event_timestamp FROM memory_files")}
+    spk = {r[0]: (r[1] or "") for r in con.execute(
+        "SELECT mem_id, speaker FROM memory_files")}
     turns = {r[0]: r[1] for r in con.execute("SELECT mem_id, turn_index FROM memory_files")}
     con.close()
     mem_of = {}
@@ -58,12 +65,22 @@ def get_env(db_dir, sid):
         v = np.array(embed(texts))
         cl_v = v / np.linalg.norm(v, axis=1, keepdims=True)
     mem_ids = sorted(mems)
-    mv = np.array(embed([mems[m][1] for m in mem_ids]))
-    mv = mv / np.linalg.norm(mv, axis=1, keepdims=True)
+    vecs = _VECS.setdefault(key, {})
+    new_ids = [m for m in mem_ids if m not in vecs]
+    if new_ids:
+        nv = np.array(embed([mems[m][1] for m in new_ids]))
+        nv = nv / np.linalg.norm(nv, axis=1, keepdims=True)
+        for m, v in zip(new_ids, nv):
+            vecs[m] = v
+    if mem_ids:
+        mv = np.stack([vecs[m] for m in mem_ids])
+    else:
+        # 空库（0 记忆）：embed([]) 会在 sentence-transformers 内抛 ValueError；adapter 会早退返回 []
+        mv = np.zeros((0, 0))
     _ENV[key] = {"con_path": str(Path(db_dir) / f"{sid}.db"), "mems": mems,
                  "clusters": clusters, "cl_v": cl_v, "embed": embed,
                  "mem_ids": mem_ids, "mv": mv, "midx": {m: i for i, m in enumerate(mem_ids)},
-                 "ets": ets, "turns": turns}
+                 "ets": ets, "turns": turns, "speakers": spk}
     return _ENV[key]
 
 

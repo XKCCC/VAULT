@@ -12,3 +12,4 @@ emo/models/*/
 .qwen/
 libs/
 aml_libs/
+aml_libs_*/

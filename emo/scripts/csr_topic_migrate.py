@@ -115,11 +115,25 @@ def main():
     taxonomy = "\n".join(f"{t['id']}. {t['name']}：{t['desc']}" for t in topics.values())
     assign = {}
     B = 30
+    batches = []
     for i in range(0, len(mems), B):
         batch = mems[i:i + B]
         blines = "\n".join(f"{i+j+1}. ({dates[m['mem_id']]}) {(m['summary'] or '')[:100]}"
                            for j, m in enumerate(batch))
-        p2 = llm(P2_PROMPT.format(taxonomy=taxonomy, lines=blines), max_tokens=2000)
+        batches.append((i, blines))
+    par = max(1, int(os.environ.get("MIGRATE_INTRA_PAR", "1")))
+
+    def _p2_one(item):
+        i, blines = item
+        return i, llm(P2_PROMPT.format(taxonomy=taxonomy, lines=blines), max_tokens=2000)
+
+    if par > 1 and len(batches) > 1:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=min(par, len(batches))) as ex:
+            p2_results = list(ex.map(_p2_one, batches))
+    else:
+        p2_results = [_p2_one(b) for b in batches]
+    for i, p2 in p2_results:
         for k, tids in (p2.get("assign") or {}).items():
             try:
                 mid = mems[int(k) - 1]["mem_id"]
@@ -136,6 +150,7 @@ def main():
     # ── Pass3：主题文档 ──
     mem_by_id = {m["mem_id"]: m for m in mems}
     docs = {}
+    p3_jobs = []
     for tid, name_desc in list(topics.items()) + [("_misc", {"name": "杂项", "desc": "未归派记忆"})]:
         mids = assign.get(tid, [])
         if not mids:
@@ -146,8 +161,21 @@ def main():
         ordered = sorted(mids, key=lambda m: (_sess_num(m), mem_by_id[m]["turn_index"]))
         dlines = "\n".join(f"{j+1}. ({dates[m]}) {(mem_by_id[m]['summary'] or '')[:120]}"
                            for j, m in enumerate(ordered[:35]))
-        p3 = llm(P3_PROMPT.format(name=name_desc["name"], desc=name_desc["desc"], lines=dlines),
-                 max_tokens=2500)
+        p3_jobs.append((tid, name_desc, ordered, dlines))
+
+    def _p3_one(job):
+        tid, name_desc, ordered, dlines = job
+        return tid, name_desc, ordered, llm(
+            P3_PROMPT.format(name=name_desc["name"], desc=name_desc["desc"], lines=dlines),
+            max_tokens=2500)
+
+    if par > 1 and len(p3_jobs) > 1:
+        from concurrent.futures import ThreadPoolExecutor
+        with ThreadPoolExecutor(max_workers=min(par, len(p3_jobs))) as ex:
+            p3_results = list(ex.map(_p3_one, p3_jobs))
+    else:
+        p3_results = [_p3_one(j) for j in p3_jobs]
+    for tid, name_desc, ordered, p3 in p3_results:
         docs[tid] = {"name": name_desc["name"], "desc": name_desc["desc"],
                      "narrative": p3.get("narrative", ""), "timeline": p3.get("timeline", []),
                      "members": ordered}

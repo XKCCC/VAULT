@@ -15,7 +15,7 @@ from vault2lib.retrieval import csr_retrieve, gap_supplements, session_merge, ti
 from vault2lib.temporal import duration_ref
 
 
-async def answer_one(client, sem, db_dir, sid, question):
+async def answer_one(client, sem, db_dir, sid, question, answer_prompt=None):
     top_ids, top_c = csr_retrieve(db_dir, sid, question)
     lines, miss = fetch_full_lines(str(Path(db_dir) / f"{sid}.db"), top_ids)
     valid_ids = [m for m in top_ids if m not in set(miss)]
@@ -31,7 +31,7 @@ async def answer_one(client, sem, db_dir, sid, question):
     ctx = header + (tl + "\n" if tl else "") + "\n".join(f"- {l}" for l in lines) \
         + ("\n" + "\n".join(f"- {s}" for s in supplements) if supplements else "")
     ref = await duration_ref(client, sem, question, lines) if C.DUR_Q_RE.search(question) else ""
-    prompt = UNIFIED_ANSWER_PROMPT.format(question=question, ref=ref)
+    prompt = (answer_prompt or UNIFIED_ANSWER_PROMPT).format(question=question, ref=ref)
     if infer:
         prompt += REASON_ADDON
     out_text = await call_llm(client, sem, C.READER_MODEL, ctx + "\n\n" + prompt,

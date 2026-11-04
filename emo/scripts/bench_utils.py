@@ -61,7 +61,7 @@ def get_embedding_fn(model_path: str):
             device = "cuda" if torch.cuda.is_available() else "cpu"
         except ImportError:
             device = "cpu"
-        batch_size = 8 if device == "cuda" else 32
+        batch_size = 64 if device == "cuda" else 32
 
         class _BatchSafeSTEF(_STEF):
             def __call__(self, input):

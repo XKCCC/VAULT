@@ -6,6 +6,7 @@ Search 走 vault2lib CSR 排序扩展到 top_k（接口层截断，不动冻结�
 """
 import asyncio
 import logging
+import os
 import re
 import subprocess
 import sys
@@ -17,7 +18,7 @@ from typing import Dict, List, Optional
 from uuid import uuid4
 
 import numpy as np
-from openai import OpenAI
+from openai import AsyncOpenAI, OpenAI
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
@@ -25,7 +26,8 @@ if str(REPO_ROOT) not in sys.path:
 
 from vault2lib import constants as C  # noqa: E402
 from vault2lib import retrieval as _retrieval  # noqa: E402
-from vault2lib.retrieval import fetch_full_lines, get_env, get_xe  # noqa: E402
+from vault2lib.retrieval import (fetch_full_lines, gap_supplements,  # noqa: E402
+                               get_env, get_xe, session_merge)
 
 from .config import AMLConfig  # noqa: E402
 
@@ -37,6 +39,12 @@ class _Library:
     lock: threading.Lock = field(default_factory=threading.Lock)
     dirty: bool = False
     last_add_ts: float = 0.0
+    consolidating: bool = False
+    cond: threading.Condition = field(default_factory=threading.Condition)
+
+    def __post_init__(self):
+        # Condition 必须共享 lib.lock，否则 cond.wait() 报 un-acquired lock
+        self.cond = threading.Condition(self.lock)
 
 
 _EF = {}
@@ -63,10 +71,13 @@ class AMLMemoryAdapter:
         self._registry_lock = threading.Lock()
         self._llm = OpenAI(base_url=self._cfg.llm_base,
                            api_key=__import__("os").environ[self._cfg.llm_key_env])
+        self._llm_async = AsyncOpenAI(base_url=self._cfg.llm_base,
+                                      api_key=os.environ[self._cfg.llm_key_env])
         root = Path(self._cfg.root)
         (root / "chroma").mkdir(parents=True, exist_ok=True)
         (root / "sqlite").mkdir(parents=True, exist_ok=True)
         self._sched_lock = threading.Lock()
+        self._last_search_ts = 0.0
         self._sched_cond = threading.Condition(self._sched_lock)
         self._stop = threading.Event()
         threading.Thread(target=self._dream_loop, daemon=True).start()
@@ -87,6 +98,20 @@ class AMLMemoryAdapter:
         for cache in (_retrieval._ENV, _retrieval._RAW, _retrieval._BM25):
             cache.pop(key, None)
 
+    @staticmethod
+    def _ensure_topic_tables(st):
+        """建库即建话题表（DDL 同 csr_topic_migrate）；否则未做梦新库 Search 撞缺表 500。"""
+        import sqlite3 as _sql
+        con = _sql.connect(str(Path(st["sqlite_dir"]) / f"{st['uid']}.db"))
+        con.execute("""CREATE TABLE IF NOT EXISTS topic_cluster (
+            topic_id TEXT PRIMARY KEY, name TEXT, narrative TEXT,
+            timeline_json TEXT DEFAULT '[]', n_members INT DEFAULT 0)""")
+        con.execute("""CREATE TABLE IF NOT EXISTS topic_member (
+            topic_id TEXT NOT NULL, mem_id TEXT NOT NULL,
+            PRIMARY KEY (topic_id, mem_id))""")
+        con.commit()
+        con.close()
+
     def _get_stores(self, user_id: str):
         with self._registry_lock:
             st = self._stores.get(user_id)
@@ -100,6 +125,7 @@ class AMLMemoryAdapter:
                 dreamer = Dreamer(index, persist, self._llm, self._cfg.llm_model)
                 st = {"uid": uid, "sqlite_dir": str(sqlite_dir), "index": index,
                       "persist": persist, "dreamer": dreamer, "lib": _Library()}
+                self._ensure_topic_tables(st)
                 self._stores[user_id] = st
                 self._libs[user_id] = st["lib"]
                 logger.info("新建记忆库 user_id=%s", user_id)
@@ -107,9 +133,23 @@ class AMLMemoryAdapter:
 
     # ── Add ──
 
-    def add(self, user_id: str, session_id: str, messages: List[dict]) -> int:
+    def add(self, user_id: str, session_id: str, messages: List[dict],
+            request_id: str = "") -> int:
         from memory.schema import IndexEntry, MemoryFile
         st = self._get_stores(user_id)
+        if request_id:
+            import sqlite3 as _sql
+            _con = _sql.connect(str(Path(st["sqlite_dir"]) / f"{st['uid']}.db"))
+            _con.execute("CREATE TABLE IF NOT EXISTS aml_req "
+                         "(request_id TEXT PRIMARY KEY, ts REAL)")
+            _cur = _con.execute("INSERT OR IGNORE INTO aml_req VALUES (?, ?)",
+                                (request_id, time.time()))
+            _con.commit()
+            _dup = _cur.rowcount == 0
+            _con.close()
+            if _dup:
+                logger.info("幂等跳过重复 request_id user=%s req=%s", st["uid"], request_id)
+                return -1
         mfs, entries = [], []
         for i, msg in enumerate(messages):
             content = (msg.get("content") or "").strip()
@@ -139,14 +179,58 @@ class AMLMemoryAdapter:
             self._sched_cond.notify_all()
         return len(mfs)
 
+    def _kick_catchup(self, st, env):
+        """Search 撞上"尚无话题簇+记忆量够"的库：立即后台补一次做梦+迁移（不等写静默窗）。
+        防连续交错 add/search 永不开 quiet 窗 → 簇级路由全程空转退化成稠密单路。"""
+        lib = st["lib"]
+        if env["cl_v"] is not None or len(env["mem_ids"]) < 8:
+            return
+        now = time.time()
+        with lib.lock:
+            if now - getattr(lib, "kick_ts", 0.0) < 90.0:
+                return
+            lib.kick_ts = now
+            lib.dirty = True
+            lib.last_add_ts = 0.0
+        with self._sched_lock:
+            self._sched_cond.notify_all()
+        logger.info("search 驱动追赶触发 user=%s mems=%d", st["uid"], len(env["mem_ids"]))
+
     # ── Search（CSR 排序扩展到 top_k）──
 
+    @staticmethod
+    def _wrap_line(env, mid, text):
+        sp = env["speakers"].get(mid, "") or "user"
+        ts = env["ets"].get(mid, "")
+        return f"ROLE: {sp}\n" + (f"TIMESTAMP: {ts}\n" if ts else "") + f"TEXT: {text}"
+
     def search(self, user_id: str, query: str, top_k: int) -> List[dict]:
+        t0 = time.time()
+        self._last_search_ts = t0
         st = self._get_stores(user_id)
         k = max(1, min(int(top_k or 10), self._cfg.max_top_k))
+        t_env0 = time.time()
         env = get_env(st["sqlite_dir"], st["uid"])
+        t_env = time.time() - t_env0
         if not env["mem_ids"]:
             return []
+        self._kick_catchup(st, env)
+        lib = st["lib"]
+        if env["cl_v"] is None and len(env["mem_ids"]) >= 8:
+            # 平台 I/O 超时 1800s：search 可有界等待本库整合完成（默认帽 600s），
+            # 等到即切完整 CSR 档；等不到回当前最优档，不超帽。
+            wait_cap = float(os.environ.get("AML_SEARCH_WAIT_S", "600"))
+            deadline = time.time() + wait_cap
+            waited = False
+            with lib.lock:
+                while (lib.dirty or lib.consolidating) and time.time() < deadline:
+                    lib.cond.wait(timeout=min(5.0, max(0.1, deadline - time.time())))
+                    waited = True
+            if waited:
+                logger.info("search 等待整合结束 user=%s 用时=%.1fs", st["uid"],
+                            min(wait_cap, time.time() - (deadline - wait_cap)))
+                self._invalidate_env(st["sqlite_dir"], st["uid"])
+                env = get_env(st["sqlite_dir"], st["uid"])
         qv = np.array(env["embed"]([query]))
         qv = qv / np.linalg.norm(qv, axis=1, keepdims=True)
         cand = []
@@ -178,41 +262,115 @@ class AMLMemoryAdapter:
         fused = sorted(valid, key=lambda m: 1.0 / (C.RRF_K + s_pos[m] + 1)
                        + 1.0 / (C.RRF_K + r_pos[m] + 1), reverse=True)
         line_of = dict(zip(valid, raw_lines))
-        return [{"id": m, "content": line_of[m], "score": 1.0 / (C.RRF_K + rk + 1)}
-                for rk, m in enumerate(fused[:k])]
+        memb = {m for c in env["clusters"] for m in c["members"]}
+        logger.info("SEARCH-TIME user=%s env=%.1fs total=%.1fs mems=%d clusters=%d",
+                    st["uid"], t_env, time.time() - t0, len(env["mem_ids"]), len(env["clusters"]))
+        top = fused[:10]
+        share = (sum(1 for m in top if m in memb) / len(top)) if top else 0.0
+        logger.info("SEARCH-PATH user=%s mems=%d clusters=%d path=%s top10_cluster_share=%.2f",
+                    st["uid"], len(env["mem_ids"]), len(env["clusters"]),
+                    "csr" if env["cl_v"] is not None else "dense_only", share)
+        score_of = {m: 1.0 / (C.RRF_K + rk + 1) for rk, m in enumerate(fused)}
+        ids = fused[:k]
+        if os.environ.get("AML_READ_SHAPING", "1") == "1" and ids:
+            # headline 两件套同步进 AML 路径，预算中性：补充条+保留条 = top_k 上限
+            lines = [line_of[m] for m in ids]
+            merged = session_merge(st["sqlite_dir"], st["uid"], ids, lines)
+            mid_of = []
+            for ml in merged:
+                mid_of.append(next((m for m in ids if ml.startswith(line_of[m])), ids[0]))
+            supps: List[str] = []
+            if merged and os.environ.get("AML_GAP_SUPP", "1") == "1":
+                async def _sup():
+                    sem = asyncio.Semaphore(4)
+                    return await gap_supplements(self._llm_async, sem, st["sqlite_dir"],
+                                                 st["uid"], query, merged)
+                try:
+                    res = asyncio.run(_sup())
+                    if isinstance(res, tuple):
+                        supps = list(res[0]) if res else []
+                    else:
+                        supps = list(res) if res else []
+                except Exception:  # noqa: BLE001
+                    logger.exception("gap_supplements 失败；不带补充继续")
+                    supps = []
+            room = max(0, k - len(supps))
+            items = [{"id": mid, "content": self._wrap_line(env, mid, ln),
+                      "score": score_of.get(mid, 0.0),
+                      "created_at": env["ets"].get(mid, "")}
+                     for mid, ln in zip(mid_of[:room], merged[:room])]
+            floor = min(score_of.values(), default=0.0)
+            for si, sp in enumerate(supps):
+                src = next((m for m in fused if sp.startswith(line_of.get(m, "x")[:40])), None)
+                items.append({"id": f"gap_{si:03d}", "score": floor,
+                              "content": self._wrap_line(env, src, sp) if src else sp,
+                              "created_at": env["ets"].get(src, "") if src else ""})
+            logger.info("SEARCH-SHAPED user=%s merged=%d supps=%d total=%d cap=%d",
+                        st["uid"], len(merged), len(supps), len(items), k)
+            return items
+        return [{"id": m, "content": self._wrap_line(env, m, line_of[m]), "score": score_of[m],
+                 "created_at": env["ets"].get(m, "")} for m in ids]
 
     # ── 后台做梦 + 话题迁移 ──
 
+    def _dream_one(self, uid: str):
+        st = self._stores.get(uid)
+        if st is None:
+            return
+        lib = st["lib"]
+        with lib.lock:
+            lib.consolidating = True
+        try:
+            stats = asyncio.run(
+                st["dreamer"].structure_and_link_memories_async(
+                    batch_size=self._cfg.dream_batch))
+            stats["fused"] = st["dreamer"].fuse_clusters()
+            logger.info("做梦完成 user=%s stats=%s", uid, stats)
+        except Exception:  # noqa: BLE001
+            logger.exception("做梦失败 user=%s", uid)
+            with lib.lock:
+                lib.dirty = True
+            return
+        try:
+            _env = dict(os.environ)
+            _env["CUDA_VISIBLE_DEVICES"] = "1"
+            subprocess.run(
+                [sys.executable,
+                 str(REPO_ROOT / "emo" / "scripts" / "csr_topic_migrate.py"),
+                 st["uid"], "--dir", st["sqlite_dir"], "--model", self._cfg.llm_model],
+                check=True, cwd=str(REPO_ROOT), env=_env)
+            self._invalidate_env(st["sqlite_dir"], st["uid"])
+            logger.info("话题迁移完成 user=%s", uid)
+        except Exception:  # noqa: BLE001
+            logger.exception("话题迁移失败 user=%s", uid)
+        finally:
+            with lib.lock:
+                lib.consolidating = False
+                lib.cond.notify_all()
+
     def _dream_loop(self):
+        # 相位边界（add 阶段结束）会让所有库同时 dirty；串行逐库会把簇新鲜度
+        # 拖到几十分钟后——并行 worker + search 踢过的库插队，把追赶时间压到分钟级。
+        from concurrent.futures import ThreadPoolExecutor
+        pool = ThreadPoolExecutor(max_workers=int(os.environ.get("AML_DREAM_WORKERS", "4")),
+                                   thread_name_prefix="amldream")
         while not self._stop.is_set():
             with self._sched_lock:
                 self._sched_cond.wait(timeout=5)
+            pause_s = float(os.environ.get("AML_PAUSE_ON_SEARCH_S", "90"))
+            if time.time() - self._last_search_ts < pause_s:
+                continue
+            jobs = []
             for uid, lib in list(self._libs.items()):
                 if not lib.dirty or time.time() - lib.last_add_ts < self._cfg.quiet_s:
                     continue
                 with lib.lock:
                     lib.dirty = False
-                st = self._stores[uid]
-                try:
-                    stats = asyncio.run(
-                        st["dreamer"].structure_and_link_memories_async(
-                            batch_size=self._cfg.dream_batch))
-                    stats["fused"] = st["dreamer"].fuse_clusters()
-                    logger.info("做梦完成 user=%s stats=%s", uid, stats)
-                except Exception:  # noqa: BLE001
-                    logger.exception("做梦失败 user=%s", uid)
-                    with lib.lock:
-                        lib.dirty = True
-                    continue
-                try:
-                    subprocess.run(
-                        [sys.executable,
-                         str(REPO_ROOT / "emo" / "scripts" / "csr_topic_migrate.py"),
-                         st["uid"], "--dir", st["sqlite_dir"], "--model", self._cfg.llm_model],
-                        check=True, cwd=str(REPO_ROOT))
-                    self._invalidate_env(st["sqlite_dir"], st["uid"])
-                except Exception:  # noqa: BLE001
-                    logger.exception("话题迁移失败 user=%s", uid)
+                    lib.consolidating = True
+                jobs.append((getattr(lib, "kick_ts", 0.0), uid))
+            jobs.sort(key=lambda x: -x[0])
+            for _kick, uid in jobs:
+                pool.submit(self._dream_one, uid)
 
     def close(self):
         self._stop.set()

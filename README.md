@@ -67,20 +67,18 @@ bash tools/repro_locomo.sh            # 默认库 libs/locomo_repro
 | RRF k | 60 | | 诊断截断 | 200 字符 |
 | 原文决胜候选 | 30 | | reader/aux 模型 | qwen3.7-max |
 
-变更记录：2026-10-15 稠密兜底 15→25（消融采纳：同尺 +1.01、翻 51/37、阶梯单调；topk 维持 20、combo 不采纳）。复现分待重跑更新（79.71/79.67 为兜底 15 时代数字）。
+变更记录：2026-10-15 稠密兜底 15→25（消融采纳：同尺 +1.01、翻 51/37、阶梯单调；topk 维持 20、combo 不采纳）；headline 更新至该常数同尺 80.32。2026-11-04 AML 对接层上生产版（幂等 Add / 契约对齐 / 追赶调度 / 检索缓存）。
 
 ## 休眠区（代码在快照里保留，入口不启用）
 
 实体注册表与全局保送（cat1 -1.4）、chain 串联聚合（-0.22）、标签路由三分支 prompt
 （被证据条件统一答题取代，+2.24）、cat1-contract / 引用先行 CoT / 计算锚注入（均证伪）、
-temporal 题时间线注入（悖论：对统一 prompt 是负债）、图遍历 / L3 / 演化 / HyDE / MMR、
-其他 bench loader（lifebench / longmemeval / personamem）。
+temporal 题时间线注入（悖论：对统一 prompt 是负债）、图遍历 / L3 / 演化 / HyDE / MMR。
 
-## headline 成绩（官方可比尺，n=1380 submitted）
+## headline 成绩（LoCoMo refined 官方可比尺）
 
-- LoCoMo refined：**79.45**（cat1 57.7 / cat2 81.6 / cat3 76.5 / cat4 84.7）；
-  vs dense 锚 v2.7 75.83：+3.62；vs MemoraX SOTA 82.65：-3.2
-- LME-S 横评（reader qwen3.7-max + gpt-4o-mini 双口径）：87.6 / 90.6（dense 85.0 / 87.0）
+- LoCoMo refined：**80.32**（cat1 62.4 / cat2 82.9 / cat3 76.5 / cat4 84.4，n=1382 同尺）；
+  vs dense 锚 v2.7 75.83：+4.49；vs MemoraX SOTA 82.65：-2.33
 
 ## 验证（2026-10-12，30 题烟测，库=locomo_sqlite_dream_bge_q37max）
 
